@@ -35,14 +35,14 @@ Ouvre http://localhost:3530 : la page « Premier lancement » crée le compte du
 
 ### Sur un serveur
 
-Tout ce qui concerne la production est dans `deploy/` ; le pas-à-pas Dokploy est dans [deploy/DEPLOY.md](deploy/DEPLOY.md). L'image est aussi publiée sur GitHub Container Registry par `.github/workflows/release.yml`.
+Tout ce qui concerne la production est dans `deploy/` ; le pas-à-pas Dokploy est dans [deploy/DEPLOY.md](deploy/DEPLOY.md). Le compose construit l'image depuis les sources : aucun registre à configurer.
 
 ```bash
-cp deploy/.env.production.example deploy/.env.prod   # remplir les valeurs, sur le serveur seulement
-docker compose -f deploy/compose.yaml --env-file deploy/.env.prod up -d
+cp deploy/.env.production.example deploy/.env.prod   # trois valeurs à remplir, sur le serveur seulement
+docker compose -f deploy/compose.yaml --env-file deploy/.env.prod up -d --build
 ```
 
-- Le site écoute sur `127.0.0.1` : mets un proxy TLS devant (Dokploy, Caddy, Traefik). Le proxy doit transmettre l'IP du visiteur dans `X-Forwarded-For` (ou régler `TRUSTED_IP_HEADER`).
+- Aucun port n'est publié : le proxy TLS (Traefik de Dokploy, Caddy…) joint le conteneur `web` sur le port 3000 par le réseau Docker. Il doit transmettre l'IP du visiteur dans `X-Forwarded-For` (ou régler `TRUSTED_IP_HEADER`).
 - La base SQLite est dans le volume `data` : c'est le seul élément à sauvegarder.
 - Les requêtes vers Nyaa du site partent de l'IP du serveur. Pour ne jamais se faire bloquer : une seule requête à la fois, cache de 5 minutes, pause automatique après un refus (les derniers résultats connus restent servis), limite de 20 recherches par minute et par compte.
 

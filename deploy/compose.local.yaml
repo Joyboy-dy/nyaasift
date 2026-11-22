@@ -14,9 +14,7 @@ services:
       target: web
     restart: unless-stopped
     environment:
-      NODE_ENV: production
       APP_URL: http://localhost:3530
-      BETTER_AUTH_URL: http://localhost:3530
       BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:?Définir BETTER_AUTH_SECRET (32 caractères au moins)}
       SUPER_ADMIN_EMAIL: ${SUPER_ADMIN_EMAIL:?Définir SUPER_ADMIN_EMAIL}
     volumes:
