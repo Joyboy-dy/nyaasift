@@ -22,7 +22,7 @@ Console → **Add new item** → déposer le zip. Puis remplir les onglets.
 
 ### Store Listing (fiche)
 
-- **Langue** : français ; ajouter l'anglais avec le texte plus bas.
+- **Langue** : français. Une fiche en anglais demande d'abord de traduire l'extension (dossier `_locales`) : le texte anglais plus bas servira ce jour-là.
 - **Catégorie** : Outils (*Tools*).
 - **Icône** : `docs/store/icon-128.png` (128 × 128, dessin de 96 × 96 et 16 px de marge transparente, comme l'exige Google).
 - **Captures** : 1 à 5, en **1280 × 800** (ou 640 × 400), PNG ou JPEG, sans bord arrondi. À faire, dans cet ordre :
