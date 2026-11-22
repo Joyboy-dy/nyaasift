@@ -1,0 +1,12 @@
+node_modules
+dist
+.output
+bun.lock
+**/generated
+**/routeTree.gen.ts
+**/migrations
+*.md
+.agents
+.claude
+docs/product/screens
+.wxt

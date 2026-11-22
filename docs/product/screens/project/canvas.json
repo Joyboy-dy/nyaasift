@@ -1,0 +1,49 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Correspondance.dc.html": {"expand": "fill", "h": 1000, "title": "Site · Pas le bon anime ?", "w": 1440, "x": 4560, "y": 0},
+    "Filtres.dc.html": {"expand": "fill", "h": 1760, "title": "Site · Résultats filtrés, releases dépliées", "w": 1440, "x": 3040, "y": 0},
+    "Indisponible.dc.html": {"expand": "fill", "h": 1160, "title": "Site · Nyaa ne répond pas", "w": 1440, "x": 6080, "y": 0},
+    "Main.dc.html": {"expand": "fill", "h": 900, "is_interactive": true, "title": "Site · Accueil", "w": 1440, "x": 0, "y": 0},
+    "Mobile.dc.html": {"h": 1560, "title": "Site · Résultats sur téléphone", "w": 390, "x": 0, "y": 2100},
+    "Resultats.dc.html": {"expand": "fill", "h": 1760, "title": "Site · Résultats", "w": 1440, "x": 1520, "y": 0},
+    "ExtNyaa.dc.html": {"h": 1240, "title": "Extension · Barre ajoutée sur nyaa.si", "w": 1440, "x": 0, "y": 4000},
+    "ExtPanneau.dc.html": {"h": 1000, "title": "Extension · Panneau latéral", "w": 400, "x": 1520, "y": 4000},
+    "ExtRattrapage.dc.html": {"h": 1000, "title": "Extension · Panneau, recherche vide rattrapée", "w": 400, "x": 2000, "y": 4000},
+    "ExtBouton.dc.html": {"h": 680, "title": "Extension · Bouton sur une fiche d'anime", "w": 960, "x": 2480, "y": 4000},
+    "ExtReglages.dc.html": {"h": 820, "title": "Extension · Réglages", "w": 960, "x": 3520, "y": 4000},
+    "PremierLancement.dc.html": {"expand": "fill", "h": 900, "title": "Super admin · Premier lancement", "w": 1440, "x": 0, "y": 6200},
+    "Connexion.dc.html": {"expand": "fill", "h": 900, "title": "Site privé · Connexion", "w": 1440, "x": 1520, "y": 6200},
+    "Invitation.dc.html": {"expand": "fill", "h": 900, "title": "Site privé · Accepter une invitation", "w": 1440, "x": 3040, "y": 6200},
+    "AdminMembres.dc.html": {"expand": "fill", "h": 1000, "title": "/admin · Membres (super admin)", "w": 1440, "x": 4560, "y": 6200},
+    "AdminAdmins.dc.html": {"expand": "fill", "h": 900, "title": "/admin · Administrateurs (super admin)", "w": 1440, "x": 6080, "y": 6200}
+  },
+  "createdOnFiles": {"at": "2026-11-22T12:00:00Z", "v": 1},
+  "designSystems": [],
+  "launch": {"view": "canvas"},
+  "noteOrder": ["row1", "row2", "row3", "row4", "intro", "adminview"],
+  "notes": {
+    "intro": {
+      "fill": "gray",
+      "text": "nyaasift · thème sombre seulement, ambiance « Nyaa amélioré ».\n\nAccent : jaune sous-titre #f2cf4a, réservé à l'action principale et au repère voix FR (point jaune = VF ou MULTi, point creux = VOSTFR). Le reste est en gris neutre ; seeders en vert, leechers en rouge, comme sur Nyaa.\n\nPolices : Geist pour l'interface, Geist Mono pour les codes d'épisode (S02 · E11), tailles et dates.\n\nForme du produit (22/11/2026) : l'extension Chrome et Firefox est le produit public (panneau latéral, barre sur nyaa.si, bouton AniList/MAL) ; le site hébergé est privé, sur invitation, géré dans /admin.\n\nDonnées réelles relevées sur nyaa.si le 22/11/2026. Dans l'app, la fiche montre la vraie affiche AniList ; ici, son cadre de secours.",
+      "w": 420,
+      "x": 7600,
+      "y": 0
+    },
+    "adminview": {
+      "fill": "gray",
+      "text": "Vue d'un admin (pas super admin) : pas de bloc « Inviter », pas de bouton « Retirer », pas d'onglet Administrateurs. Il garde Suspendre, Réactiver et Lien mot de passe, pour les membres seulement.\n\nUn membre qui ouvre /admin voit « Réservé aux admins ». Un visiteur non connecté est envoyé à la connexion.\n\nAdresses IP autorisées : plus tard, en « mode restreint » optionnel.",
+      "w": 420,
+      "x": 7600,
+      "y": 6200
+    },
+    "row1": {"kind": "title1", "maxW": 7520, "text": "Site privé · recherche", "w": 240, "x": 0, "y": -300},
+    "row2": {"kind": "title1", "maxW": 1200, "text": "Téléphone", "w": 240, "x": 0, "y": 1800},
+    "row3": {"kind": "title1", "maxW": 4480, "text": "Extension · Chrome et Firefox", "w": 240, "x": 0, "y": 3700},
+    "row4": {"kind": "title1", "maxW": 7520, "text": "Site privé · accès et /admin", "w": 240, "x": 0, "y": 5900}
+  },
+  "order": ["Main.dc.html", "Resultats.dc.html", "Filtres.dc.html", "Correspondance.dc.html", "Indisponible.dc.html", "Mobile.dc.html", "ExtNyaa.dc.html", "ExtPanneau.dc.html", "ExtRattrapage.dc.html", "ExtBouton.dc.html", "ExtReglages.dc.html", "PremierLancement.dc.html", "Connexion.dc.html", "Invitation.dc.html", "AdminMembres.dc.html", "AdminAdmins.dc.html"],
+  "pages": [],
+  "title": "nyaasift · écrans"
+}

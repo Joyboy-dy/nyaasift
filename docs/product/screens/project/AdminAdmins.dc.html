@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · /admin · Administrateurs</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.nav a{height:32px;padding:0 12px;display:inline-flex;align-items:center;border-radius:8px;color:#a1a1a6;text-decoration:none;font-size:14px}
+.nav a[aria-current="page"]{background:#232325;color:#ededed;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.tabs{display:flex;gap:24px;border-bottom:1px solid rgba(237,237,237,.08)}
+.tabs a{padding:10px 0;color:#a1a1a6;text-decoration:none;font-size:14px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a[aria-current="page"]{color:#ededed;border-bottom-color:#ededed}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#85858b}
+.card{background:#19191b;border:1px solid rgba(237,237,237,.08);border-radius:12px}
+.line{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;min-height:60px;box-sizing:border-box;padding:12px 16px;border-top:1px solid rgba(237,237,237,.08)}
+.line:first-child{border-top:0}
+.qbtn{height:32px;padding:0 10px;background:transparent;color:#a1a1a6;border:1px solid rgba(237,237,237,.08);border-radius:8px;font:inherit;font-size:13px;cursor:pointer}
+.rights{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:#a1a1a6}
+</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #141415; color: #ededed; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 20px;">
+  <header style="display: flex; align-items: center; gap: 24px; min-height: 64px; padding: 0 32px; background: #0f0f10; border-bottom: 1px solid rgba(237,237,237,.08);">
+    <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 500; font-size: 18px;">nyaa<span style="color: #85858b;">sift</span></span>
+    <nav class="nav" aria-label="Navigation" style="display: flex; gap: 4px;"><a href="Main.dc.html">Recherche</a><a href="#" aria-current="page">Admin</a></nav>
+    <span style="margin-left: auto; display: flex; align-items: center; gap: 12px; font-size: 13px; color: #a1a1a6;"><span class="mono" style="padding: 2px 6px; border: 1px solid rgba(237,237,237,.14); border-radius: 4px;">super admin</span><a href="#" style="color: #a1a1a6;">Déconnexion</a></span>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 32px 32px 64px; display: flex; flex-direction: column; gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <h1 style="margin: 0; font-size: 28px; line-height: 32px; font-weight: 500;">Admin</h1>
+      <nav class="tabs" aria-label="Sections de l'admin"><a href="AdminMembres.dc.html">Membres</a><a href="#" aria-current="page">Administrateurs</a></nav>
+    </div>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 24px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="card">
+          <div class="line">
+            <div style="flex: 1; display: flex; flex-direction: column;"><span style="font-weight: 500;">Toi · super admin</span><span class="mono" style="font-size: 13px;">toi@exemple.fr</span></div>
+            <span class="mono">défini par SUPER_ADMIN_EMAIL, non modifiable ici</span>
+          </div>
+          <div class="line">
+            <div style="flex: 1; display: flex; flex-direction: column;"><span style="font-weight: 500;">Mira · admin</span><span class="mono" style="font-size: 13px;">mira@exemple.fr</span></div>
+            <span class="mono">nommée le 22/11/26</span>
+            <button type="button" class="qbtn">Retirer le rôle</button>
+          </div>
+        </div>
+
+        <form style="display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; padding: 16px; background: #19191b; border: 1px solid rgba(237,237,237,.08); border-radius: 12px;">
+          <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px;">
+            <label for="who" style="font-size: 13px; color: #a1a1a6;">Nommer un membre admin</label>
+            <select id="who" style="height: 40px; padding: 0 10px; background: #0f0f10; color: #ededed; border: 1px solid rgba(237,237,237,.14); border-radius: 8px; font: inherit; font-size: 14px;"><option>Kenji · kenji@exemple.fr</option><option>Sam · sam@exemple.fr</option><option>Nadia · nadia@exemple.fr</option></select>
+          </div>
+          <button type="submit" style="height: 40px; padding: 0 16px; background: #232325; color: #ededed; border: 1px solid rgba(237,237,237,.14); border-radius: 8px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer;">Nommer admin</button>
+        </form>
+      </div>
+
+      <aside class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+        <h2 style="margin: 0; font-size: 14px; font-weight: 500;">Ce que peut faire un admin</h2>
+        <ul class="rights">
+          <li>Suspendre et réactiver un membre</li>
+          <li>Fermer ses sessions</li>
+          <li>Créer un lien de mot de passe</li>
+        </ul>
+        <h2 style="margin: 8px 0 0; font-size: 14px; font-weight: 500;">Réservé au super admin</h2>
+        <ul class="rights">
+          <li>Inviter quelqu'un</li>
+          <li>Retirer un compte</li>
+          <li>Nommer ou retirer un admin</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

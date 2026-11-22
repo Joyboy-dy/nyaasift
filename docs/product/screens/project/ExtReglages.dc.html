@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · réglages de l'extension</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.setting{display:flex;gap:24px;align-items:center;justify-content:space-between;min-height:64px;box-sizing:border-box;padding:12px 16px;border-top:1px solid rgba(237,237,237,.08)}
+.setting:first-child{border-top:0}
+.setting .txt{display:flex;flex-direction:column;gap:2px}
+.setting .txt span{font-size:13px;color:#a1a1a6}
+.seg{display:inline-flex;gap:2px;padding:2px;background:#0f0f10;border:1px solid rgba(237,237,237,.08);border-radius:8px;flex:none}
+.seg button{height:32px;padding:0 12px;display:inline-flex;align-items:center;gap:8px;background:transparent;color:#a1a1a6;border:0;border-radius:6px;font:inherit;font-size:13px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:#232325;color:#ededed;font-weight:500;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.dot{width:8px;height:8px;border-radius:4px;display:inline-block;flex:none}
+.sw{position:relative;width:40px;height:24px;flex:none;border-radius:12px;border:0;cursor:pointer;padding:0}
+.sw::after{content:"";position:absolute;top:3px;width:18px;height:18px;border-radius:9px;background:#ededed;transition:transform .15s cubic-bezier(.22,1,.36,1)}
+.sw[aria-checked="true"]{background:#ededed}
+.sw[aria-checked="true"]::after{left:3px;transform:translateX(16px);background:#141415}
+.sw[aria-checked="false"]{background:#2e2e31}
+.sw[aria-checked="false"]::after{left:3px}
+.card{background:#19191b;border:1px solid rgba(237,237,237,.08);border-radius:12px}
+h2{margin:0 0 8px;font-size:13px;line-height:20px;font-weight:500;color:#a1a1a6}
+</style>
+</helmet>
+<div style="width: 960px; min-height: 820px; box-sizing: border-box; padding: 40px 48px; background: #141415; color: #ededed; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 20px; display: flex; flex-direction: column; gap: 32px;">
+  <header style="display: flex; flex-direction: column; gap: 4px;">
+    <p style="margin: 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 14px; color: #85858b;">nyaa<span style="color: #ededed;">sift</span> · extension</p>
+    <h1 style="margin: 0; font-size: 28px; line-height: 32px; font-weight: 500;">Réglages</h1>
+  </header>
+
+  <section>
+    <h2>Ce que tu cherches d'habitude</h2>
+    <div class="card">
+      <div class="setting">
+        <div class="txt"><strong style="font-weight: 500;">Langue par défaut</strong><span>Appliquée à chaque recherche, modifiable sur la page</span></div>
+        <div class="seg" role="group" aria-label="Langue par défaut">
+          <button type="button" aria-pressed="false">Toutes</button>
+          <button type="button" aria-pressed="true"><span class="dot" style="background: #f2cf4a;"></span>Voix FR</button>
+          <button type="button" aria-pressed="false"><span class="dot" style="background: #f2cf4a;"></span>MULTi</button>
+          <button type="button" aria-pressed="false"><span class="dot" style="box-shadow: inset 0 0 0 1.5px #a1a1a6;"></span>VOSTFR</button>
+        </div>
+      </div>
+      <div class="setting">
+        <div class="txt"><strong style="font-weight: 500;">Qualité préférée</strong><span>Les autres restent visibles en retirant le filtre</span></div>
+        <div class="seg" role="group" aria-label="Qualité préférée">
+          <button type="button" aria-pressed="false">Toutes</button>
+          <button type="button" aria-pressed="false">2160p</button>
+          <button type="button" aria-pressed="true">1080p</button>
+          <button type="button" aria-pressed="false">720p</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Où l'extension agit</h2>
+    <div class="card">
+      <div class="setting">
+        <div class="txt"><strong style="font-weight: 500;">Barre nyaasift sur nyaa.si</strong><span>Sous la recherche de Nyaa, sans toucher au reste de la page</span></div>
+        <button type="button" class="sw" role="switch" aria-checked="true" aria-label="Barre nyaasift sur nyaa.si"></button>
+      </div>
+      <div class="setting">
+        <div class="txt"><strong style="font-weight: 500;">Rattraper les recherches vides avec AniList</strong><span>Quand Nyaa ne trouve rien, chercher sous les vrais titres de l'anime</span></div>
+        <button type="button" class="sw" role="switch" aria-checked="true" aria-label="Rattraper les recherches vides avec AniList"></button>
+      </div>
+      <div class="setting">
+        <div class="txt"><strong style="font-weight: 500;">Bouton sur AniList et MyAnimeList</strong><span>« Chercher sur Nyaa » sous le titre de chaque fiche</span></div>
+        <button type="button" class="sw" role="switch" aria-checked="true" aria-label="Bouton sur AniList et MyAnimeList"></button>
+      </div>
+      <div class="setting">
+        <div class="txt"><strong style="font-weight: 500;">Toutes les releases de chaque épisode</strong><span>Par défaut, la meilleure release, les autres dépliables</span></div>
+        <button type="button" class="sw" role="switch" aria-checked="false" aria-label="Toutes les releases de chaque épisode"></button>
+      </div>
+    </div>
+  </section>
+
+  <p style="margin: 0; font-size: 13px; color: #85858b;">L'extension parle seulement à nyaa.si et à AniList, depuis ton navigateur. Aucune statistique, aucun compte · <a href="#" style="color: #a1a1a6;">Code source</a></p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":960,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

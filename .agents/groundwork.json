@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "name": "nyaasift",
+  "slug": "nyaasift",
+  "type": "web",
+  "phase": "ready",
+  "created": "2026-11-22",
+  "brandmark": null,
+  "artifacts": {
+    "screens": "https://claude.ai/artifact/WUm6hSStqtH27s7QDL3FNi"
+  },
+  "stack": {
+    "runtime": "bun",
+    "web": "tanstack-start",
+    "auth": "better-auth",
+    "db": "sqlite",
+    "validation": "zod",
+    "ui": "shadcn",
+    "icons": "tabler-icons",
+    "extension": "wxt",
+    "deploy": "docker-ghcr"
+  },
+  "apps": [
+    {
+      "name": "web",
+      "kind": "web",
+      "framework": "tanstack-start",
+      "port": 3530,
+      "container": true,
+      "domain": null
+    }
+  ],
+  "packages": [
+    {
+      "name": "shared",
+      "role": "shared",
+      "framework": "zod"
+    }
+  ],
+  "services": [],
+  "criticalJourneys": [
+    "Premier lancement : création du compte super admin",
+    "Accepter une invitation puis se connecter",
+    "Suspendre un membre depuis /admin",
+    "Recherche directe et filtres sur le site",
+    "Extension : recherche dans le panneau latéral",
+    "Extension : recherche vide de nyaa.si rattrapée"
+  ],
+  "skills": [
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "tanstack-start-architecture",
+      "reason": "Avant de toucher aux routes, fonctions serveur, middleware, à la route /api/auth/$ ou à la protection de /admin."
+    },
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "senior-frontend-engineering",
+      "reason": "Pour une fonctionnalité ou un refactor du site ou de l'extension (état, appels AniList et Nyaa, composants, tests)."
+    },
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "form-ux-validation",
+      "reason": "Pour la recherche, les filtres, la connexion, l'invitation et les formulaires de /admin : validation, messages d'erreur, envoi."
+    },
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "responsive-interface-guardian",
+      "reason": "Pour chaque écran nouveau ou modifié : tableau en cartes sur téléphone, panneau latéral étroit, débordements, zoom."
+    },
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "ux-ui-audit",
+      "reason": "Pour auditer un écran existant (accessibilité, états vides, d'erreur, de chargement) avant de le refaire."
+    },
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "frontend-aesthetics",
+      "reason": "Pour garder le site et l'extension fidèles à la direction de mood.md (sombre, Geist, jaune sous-titre)."
+    },
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "chromatic-design",
+      "reason": "Pour toute décision de couleur, de jeton ou de contraste, en thème sombre seulement."
+    },
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "ui-modern-2026",
+      "reason": "Pour utiliser une capacité CSS récente avec son repli."
+    },
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "container-compose-ghcr-deployment",
+      "reason": "Pour toute modification du Dockerfile, de Compose, du volume SQLite, de la CI ou de la publication d'image."
+    },
+    {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "skill": "codebase-architecture-guardian",
+      "reason": "Avant de décider où placer du code (parseur partagé, garde-fous de la recherche, rôles, extension) ou d'un refactor large."
+    },
+    {
+      "source": "shadcn/ui",
+      "skill": "shadcn",
+      "reason": "Avant d'ajouter ou de modifier un composant shadcn/ui."
+    }
+  ],
+  "uiLanguage": "fr",
+  "github": {
+    "repo": null,
+    "visibility": "private",
+    "description": "Tape le titre comme il te vient : nyaasift retrouve l'anime, cherche sur Nyaa sous tous ses noms et range les releases VF, MULTi ou VOSTFR par film, pack de saison et épisode. Extension Chrome et Firefox, site privé à héberger soi-même.",
+    "topics": [
+      "anime",
+      "nyaa",
+      "browser-extension",
+      "search-engine",
+      "french"
+    ],
+    "homepage": null
+  },
+  "history": [
+    {
+      "date": "2026-11-22",
+      "from": null,
+      "to": "discover",
+      "note": "Projet créé",
+      "validatedBy": null
+    },
+    {
+      "date": "2026-11-22",
+      "from": "discover",
+      "to": "screens",
+      "note": "Dossier produit validé, style neutre (pas de brandmark pour l'instant)",
+      "validatedBy": "propriétaire"
+    },
+    {
+      "date": "2026-11-22",
+      "from": "screens",
+      "to": "stack",
+      "note": "Écrans validés (sombre seulement, accent jaune sous-titre, Geist)",
+      "validatedBy": "propriétaire"
+    },
+    {
+      "date": "2026-11-22",
+      "from": "stack",
+      "to": "screens",
+      "note": "Nouvelle forme : extension Chrome/Firefox au MVP (nyaa.si refait, panneau, bouton AniList/MAL) ; site hébergé privé, comptes sur invitation (5-10 personnes)",
+      "validatedBy": "propriétaire"
+    },
+    {
+      "date": "2026-11-22",
+      "from": "screens",
+      "to": "stack",
+      "note": "Écrans validés : extension (panneau, barre nyaa.si, bouton AniList/MAL) et site privé /admin",
+      "validatedBy": "propriétaire"
+    },
+    {
+      "date": "2026-11-22",
+      "from": "stack",
+      "to": "setup",
+      "note": "Stack et organisation validées : TanStack Start seul serveur, SQLite, Better Auth, WXT, Tabler Icons",
+      "validatedBy": "propriétaire"
+    },
+    {
+      "date": "2026-11-22",
+      "from": "setup",
+      "to": "ready",
+      "note": "Setup terminé : web TanStack Start (3530), packages/shared, extension WXT (Chrome MV3, Firefox MV2), Tabler Icons, check vert",
+      "validatedBy": null
+    }
+  ]
+}

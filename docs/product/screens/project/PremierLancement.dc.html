@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · Premier lancement</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.f{display:flex;flex-direction:column;gap:8px}
+.f label{font-size:13px;color:#a1a1a6}
+.f input{height:44px;box-sizing:border-box;padding:0 12px;background:#19191b;color:#ededed;border:1px solid rgba(237,237,237,.14);border-radius:8px;font:inherit;font-size:15px}
+.f input[readonly]{background:#0f0f10;color:#a1a1a6}
+.hint{font-size:12px;color:#85858b}
+</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #141415; color: #ededed; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 20px; display: flex; flex-direction: column;">
+  <header style="display: flex; align-items: center; min-height: 64px; padding: 0 32px;">
+    <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 500; font-size: 18px;">nyaa<span style="color: #85858b;">sift</span></span>
+  </header>
+  <main style="flex-grow: 1; display: flex; align-items: center; padding: 0 32px 96px;">
+    <div style="width: 100%; max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <p style="margin: 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: #85858b;">premier lancement</p>
+        <h1 style="margin: 0; font-size: 28px; line-height: 32px; font-weight: 500;">Crée le compte super admin</h1>
+        <p style="margin: 0; color: #a1a1a6;">Seul l'e-mail défini dans SUPER_ADMIN_EMAIL peut créer ce compte. Ensuite, on n'entre que sur invitation</p>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="f"><label for="email">E-mail du super admin</label><input id="email" type="email" value="toi@exemple.fr" readonly><span class="hint">Lu dans la configuration du serveur</span></div>
+        <div class="f"><label for="name">Nom affiché</label><input id="name" type="text" autocomplete="nickname" value="Toi"></div>
+        <div class="f"><label for="pw">Mot de passe</label><input id="pw" type="password" autocomplete="new-password" value="motdepasse-long"><span class="hint">12 caractères au moins</span></div>
+        <button type="submit" style="height: 44px; margin-top: 8px; background: #f2cf4a; color: #141415; border: 0; border-radius: 8px; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer;">Créer et ouvrir l'admin</button>
+      </form>
+      <p style="margin: 0; padding-top: 16px; border-top: 1px solid rgba(237,237,237,.08); font-size: 13px; color: #85858b;">Cette page disparaît dès que le compte existe</p>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · Accueil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.seg{display:inline-flex;gap:2px;padding:2px;background:#0f0f10;border:1px solid rgba(237,237,237,.08);border-radius:10px}
+.seg button{height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:8px;background:transparent;color:#a1a1a6;border:0;border-radius:8px;font:inherit;font-size:14px;cursor:pointer;transition:background-color .15s cubic-bezier(.22,1,.36,1),color .15s cubic-bezier(.22,1,.36,1)}
+.seg button:hover{color:#ededed}
+.seg button[aria-pressed="true"]{background:#232325;color:#ededed;font-weight:500;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.dot{width:8px;height:8px;border-radius:4px;display:inline-block;flex:none}
+.ex{display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:6px;background:#19191b;border:1px solid rgba(237,237,237,.08);color:#a1a1a6;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;text-decoration:none}
+.ex:hover{color:#ededed;background:#232325}
+.go{height:48px;padding:0 20px;display:inline-flex;align-items:center;gap:8px;background:#f2cf4a;color:#141415;border:0;border-radius:10px;font:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:background-color .15s cubic-bezier(.22,1,.36,1)}
+.go:hover{background:#f6da6c}
+#q:focus{outline:2px solid #f2cf4a;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; background: #141415; color: #ededed; font-family: Geist, system-ui, sans-serif; display: flex; flex-direction: column;">
+  <header style="display: flex; align-items: center; justify-content: flex-end; min-height: 64px; padding: 0 32px;">
+    <a href="#" style="color: #a1a1a6; text-decoration: none; font-size: 14px;">Code source</a>
+  </header>
+
+  <main style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 32px 128px;">
+    <div style="width: 100%; max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <p style="margin: 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 20px; font-weight: 500; color: #ededed;">nyaa<span style="color: #85858b;">sift</span></p>
+        <h1 style="margin: 0; font-size: 40px; line-height: 44px; font-weight: 500; letter-spacing: -0.02em;">Tape le titre comme il te vient</h1>
+        <p style="margin: 0; max-width: 36rem; font-size: 18px; line-height: 28px; color: #a1a1a6;">On retrouve l'anime sous tous ses noms et on range Nyaa par film, pack et épisode, en VF, MULTi ou VOSTFR</p>
+      </div>
+
+      <form role="search" style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; gap: 8px;">
+          <label for="q" class="sr">Titre de l'anime</label>
+          <input id="q" type="search" placeholder="saga tanya" style="flex-grow: 1; min-width: 0; height: 48px; box-sizing: border-box; padding: 0 16px; background: #19191b; color: #ededed; border: 1px solid rgba(237,237,237,.14); border-radius: 10px; font: inherit; font-size: 17px;">
+          <button type="submit" class="go">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+            Chercher
+          </button>
+        </div>
+        <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <legend class="sr">Langue</legend>
+          <span aria-hidden="true" style="font-size: 13px; color: #85858b;">Langue</span>
+          <div class="seg">
+            <button type="button" aria-pressed="false">Toutes</button>
+            <button type="button" aria-pressed="true"><span class="dot" style="background: #f2cf4a;"></span>Voix FR</button>
+            <button type="button" aria-pressed="false"><span class="dot" style="background: #f2cf4a;"></span>MULTi</button>
+            <button type="button" aria-pressed="false"><span class="dot" style="box-shadow: inset 0 0 0 1.5px #a1a1a6;"></span>VOSTFR</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <p style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: #85858b;">Essaie
+        <a class="ex" href="Resultats.dc.html">saga tanya</a>
+        <a class="ex" href="Indisponible.dc.html">frieren</a>
+        <a class="ex" href="Correspondance.dc.html">tanya</a>
+      </p>
+    </div>
+  </main>
+
+  <footer style="padding: 20px 32px; border-top: 1px solid rgba(237,237,237,.08); font-size: 13px; color: #85858b; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px;">
+    <span>nyaasift ne télécharge rien, il te donne les liens vers Nyaa</span>
+    <span>Open source · aucun pistage · titres via AniList</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

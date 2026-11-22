@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · Résultats pour saga tanya</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.ns{--bg:#141415;--deep:#0f0f10;--card:#19191b;--raised:#232325;--line:rgba(237,237,237,.08);--line2:rgba(237,237,237,.14);--text:#ededed;--text2:#a1a1a6;--muted:#85858b;--accent:#f2cf4a;--ink:#141415;--seed:#4cc38a;--leech:#ef6b6f;min-height:100%;background:var(--bg);color:var(--text);font-family:Geist,system-ui,sans-serif;font-size:14px;line-height:20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;min-height:64px;box-sizing:border-box;padding:12px 32px;background:var(--deep);border-bottom:1px solid var(--line)}
+.brand{font-family:'Geist Mono',ui-monospace,monospace;font-weight:500;font-size:18px;color:var(--text);text-decoration:none}
+.brand span{color:var(--muted)}
+.search{flex:1 1 420px;max-width:720px;display:flex;gap:8px}
+.search input{flex:1;min-width:0;height:40px;box-sizing:border-box;padding:0 12px;background:var(--card);color:var(--text);border:1px solid var(--line2);border-radius:8px;font:inherit;font-size:15px}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.btn{height:40px;padding:0 16px;display:inline-flex;align-items:center;gap:8px;background:var(--raised);color:var(--text);border:1px solid var(--line);border-radius:8px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);transition:background-color .15s cubic-bezier(.22,1,.36,1)}
+.btn:hover{background:#2a2a2d;color:var(--text)}
+.btn.primary{background:var(--accent);color:var(--ink);border-color:transparent;box-shadow:none}
+.btn.primary:hover{background:#f6da6c;color:var(--ink)}
+.topnav{margin-left:auto}
+.topnav a{color:var(--text2);text-decoration:none;font-size:14px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px 64px}
+.anime{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;padding:32px 0 24px}
+.cover{width:120px;height:168px;flex:none;box-sizing:border-box;border-radius:12px;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;background:linear-gradient(180deg,#28282c,#1b1b1e);border:1px solid var(--line)}
+.cover b{font-weight:500;font-size:15px;line-height:18px}
+.cover small{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;line-height:16px;color:var(--muted)}
+.anime-info{flex:1 1 400px;display:flex;flex-direction:column;gap:4px}
+.eyebrow{margin:0;font-size:13px;color:var(--muted)}
+.anime h1{margin:0;font-size:32px;line-height:36px;font-weight:500;letter-spacing:-0.01em}
+.alt{margin:0 0 8px;color:var(--text2);font-size:16px;line-height:24px}
+.searched{margin:0;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tag{padding:2px 8px;border-radius:6px;background:var(--raised);color:var(--text2);font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;line-height:20px}
+.filters{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.fg{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0;min-width:0}
+.fg legend,.fg>label{padding:0;font-size:12px;line-height:16px;color:var(--muted)}
+.seg{display:inline-flex;gap:2px;padding:2px;background:var(--deep);border:1px solid var(--line);border-radius:8px}
+.seg button{height:32px;padding:0 12px;display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text2);border:0;border-radius:6px;font:inherit;font-size:13px;cursor:pointer;transition:background-color .15s cubic-bezier(.22,1,.36,1),color .15s cubic-bezier(.22,1,.36,1)}
+.seg button:hover{color:var(--text)}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--text);font-weight:500;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.field{height:38px;box-sizing:border-box;padding:0 10px;background:var(--deep);color:var(--text);border:1px solid var(--line);border-radius:8px;font:inherit;font-size:13px}
+.checks{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--text2)}
+.checks label{display:flex;gap:8px;align-items:center}
+.checks input{accent-color:#f2cf4a;margin:0;width:16px;height:16px}
+.reset{margin-left:auto;align-self:center;font-size:13px;color:var(--text2)}
+.dot{width:8px;height:8px;border-radius:4px;display:inline-block;flex:none}
+.dot.fr{background:var(--accent)}
+.dot.sub{box-shadow:inset 0 0 0 1.5px var(--text2)}
+.summary{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin:16px 0 0;font-size:13px;color:var(--muted)}
+.sec h2{margin:32px 0 12px;font-size:16px;line-height:24px;font-weight:500;display:flex;align-items:baseline;gap:8px}
+.count{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:400;color:var(--muted)}
+.track{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 12px}
+.track a{width:40px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:var(--raised);color:var(--text2);font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;text-decoration:none}
+.track a:hover{color:var(--text);background:#2a2a2d}
+.tbl{border:1px solid var(--line);border-radius:12px;overflow-x:auto;background:var(--card)}
+.row{display:grid;grid-template-columns:112px minmax(340px,1fr) 96px 64px 88px 96px 48px 48px 96px;align-items:center;min-height:44px;min-width:1040px;border-top:1px solid var(--line)}
+.row>*{padding:0 12px}
+.row.head{border-top:0;min-height:36px;font-size:12px;color:var(--muted)}
+.row.item:hover{background:#1e1e20}
+.row.remake{background:rgba(229,72,77,.08)}
+.row.trusted{background:rgba(76,195,138,.07)}
+.code{font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;white-space:nowrap}
+.name{display:flex;gap:8px;align-items:center;min-width:0}
+.name a{flex:1;min-width:0;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.name a:hover{color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.num{text-align:right;font-variant-numeric:tabular-nums;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px}
+.dim{color:var(--muted);font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}
+.seed{color:var(--seed)}.leech{color:var(--leech)}
+.lang{display:inline-flex;align-items:center;gap:8px;font-size:13px}
+.lang.autre{color:var(--muted)}
+.links{display:flex;justify-content:flex-end;gap:4px}
+.links a{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;color:var(--muted)}
+.links a:hover{background:var(--raised);color:var(--text)}
+.empty{margin:0;padding:16px;border:1px dashed var(--line2);border-radius:12px;font-size:13px;color:var(--text2)}
+.legend{display:flex;flex-wrap:wrap;gap:16px 24px;margin-top:32px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:12px;height:12px;border-radius:4px;display:inline-block}
+</style>
+</helmet>
+<div class="ns">
+  <header class="top">
+    <a class="brand" href="Main.dc.html">nyaa<span>sift</span></a>
+    <form class="search" role="search">
+      <label for="q" class="sr">Titre de l'anime</label>
+      <input id="q" type="search" value="saga tanya">
+      <button type="submit" class="btn primary">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        Chercher
+      </button>
+    </form>
+    <nav class="topnav" aria-label="Liens"><a href="#">Code source</a></nav>
+  </header>
+
+  <main class="wrap">
+    <section class="anime" aria-label="Anime reconnu">
+      <div class="cover" role="img" aria-label="Affiche de Youjo Senki"><b>Youjo Senki</b><small>AniList · TV</small></div>
+      <div class="anime-info">
+        <p class="eyebrow">Anime reconnu</p>
+        <h1>Youjo Senki</h1>
+        <p class="alt">Saga of Tanya the Evil</p>
+        <p class="searched">Cherché sur Nyaa sous
+          <span class="tag">saga tanya</span><span class="tag">Youjo Senki</span><span class="tag">Saga of Tanya the Evil</span>
+        </p>
+      </div>
+      <a class="btn" href="Correspondance.dc.html">Pas le bon anime ?</a>
+    </section>
+
+    <form class="filters" aria-label="Filtres">
+      <fieldset class="fg"><legend>Langue</legend>
+        <div class="seg">
+          <button type="button" aria-pressed="true">Toutes</button>
+          <button type="button" aria-pressed="false"><span class="dot fr"></span>Voix FR</button>
+          <button type="button" aria-pressed="false"><span class="dot fr"></span>MULTi</button>
+          <button type="button" aria-pressed="false"><span class="dot sub"></span>VOSTFR</button>
+        </div>
+      </fieldset>
+      <fieldset class="fg"><legend>Qualité</legend>
+        <div class="seg">
+          <button type="button" aria-pressed="true">Toutes</button>
+          <button type="button" aria-pressed="false">2160p</button>
+          <button type="button" aria-pressed="false">1080p</button>
+          <button type="button" aria-pressed="false">720p</button>
+        </div>
+      </fieldset>
+      <div class="fg"><label for="season">Saison</label>
+        <select id="season" class="field"><option>Toutes</option><option>Saison 1</option><option>Saison 2</option></select>
+      </div>
+      <fieldset class="fg"><legend>Type</legend>
+        <div class="seg">
+          <button type="button" aria-pressed="true">Tout</button>
+          <button type="button" aria-pressed="false">Séries</button>
+          <button type="button" aria-pressed="false">Films</button>
+        </div>
+      </fieldset>
+      <div class="fg"><label for="seeds">Seeders min.</label>
+        <input id="seeds" class="field" type="number" value="1" min="0" style="width: 72px;">
+      </div>
+      <div class="checks">
+        <label><input type="checkbox"> Toutes les releases de chaque épisode</label>
+        <label><input type="checkbox"> Recherche brute, sans AniList</label>
+      </div>
+      <a class="reset" href="#">Réinitialiser</a>
+    </form>
+
+    <p class="summary"><span>Meilleure release de chaque épisode, choisie par seeders, remakes écartés</span><span class="dim">résultats de 14:02 · cache 5 min</span></p>
+
+    <sc-for list="{{sections}}" as="s" hint-placeholder-count="4">
+      <section class="sec">
+        <h2>{{s.title}} <span class="count">{{s.count}}</span></h2>
+        <sc-if value="{{s.hasTrack}}" hint-placeholder-val="{{false}}">
+          <nav class="track" aria-label="Aller à un épisode">
+            <sc-for list="{{s.track}}" as="t" hint-placeholder-count="12"><a href="#{{t.anchor}}">{{t.n}}</a></sc-for>
+          </nav>
+        </sc-if>
+        <sc-if value="{{s.isEmpty}}" hint-placeholder-val="{{false}}">
+          <p class="empty">{{s.emptyText}}</p>
+        </sc-if>
+        <sc-if value="{{s.hasRows}}" hint-placeholder-val="{{true}}">
+          <div class="tbl" role="table" aria-label="{{s.title}}">
+            <div class="row head" role="row">
+              <span role="columnheader">Épisode</span><span role="columnheader">Nom</span><span role="columnheader">Langue</span><span role="columnheader">Qualité</span><span class="num" role="columnheader">Taille</span><span role="columnheader">Date</span><span class="num" role="columnheader" title="Seeders">S</span><span class="num" role="columnheader" title="Leechers">L</span><span class="num" role="columnheader">Liens</span>
+            </div>
+            <sc-for list="{{s.rows}}" as="r" hint-placeholder-count="3">
+              <div class="row item {{r.cls}}" role="row" id="{{r.anchor}}">
+                <span class="code" role="cell">{{r.code}}</span>
+                <span class="name" role="cell"><a href="https://nyaa.si/view/{{r.id}}" title="{{r.name}}">{{r.name}}</a></span>
+                <span role="cell"><span class="lang {{r.langCls}}"><sc-if value="{{r.hasDot}}" hint-placeholder-val="{{true}}"><span class="dot {{r.dot}}"></span></sc-if>{{r.lang}}</span></span>
+                <span class="dim" role="cell">{{r.res}}</span>
+                <span class="num" role="cell">{{r.size}}</span>
+                <span class="dim" role="cell">{{r.date}}</span>
+                <span class="num seed" role="cell">{{r.s}}</span>
+                <span class="num leech" role="cell">{{r.l}}</span>
+                <span class="links" role="cell">
+                  <a href="https://nyaa.si/view/{{r.id}}" aria-label="Ouvrir la page Nyaa">
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg>
+                  </a>
+                  <a href="#" aria-label="Ouvrir le lien magnet">
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a6 6 0 0 0 12 0V3"></path><path d="M6 7h4M14 7h4"></path><path d="M10 3v8a2 2 0 0 0 4 0V3"></path></svg>
+                  </a>
+                </span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </section>
+    </sc-for>
+
+    <p class="legend">
+      <span><span class="dot fr"></span>Voix FR (VF ou MULTi)</span>
+      <span><span class="dot sub"></span>VOSTFR</span>
+      <span><span class="sw" style="background: rgba(76,195,138,.18);"></span>Uploader de confiance</span>
+      <span><span class="sw" style="background: rgba(229,72,77,.2);"></span>Remake</span>
+    </p>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const L = { MULTi: ['fr', ''], VF: ['fr', ''], VOSTFR: ['sub', ''], Autre: ['', 'autre'] };
+    const R = (code, id, name, lang, res, size, date, s, l) => ({ code, id, name, lang, dot: L[lang][0], hasDot: L[lang][0] !== '', langCls: L[lang][1], res, size, date, s, l, cls: '', anchor: 'r-' + id });
+    const sec = (title, rows, extra) => Object.assign({ title, rows, count: String(rows.length), hasRows: rows.length > 0, isEmpty: rows.length === 0, emptyText: '', hasTrack: false, track: [] }, extra || {});
+    const VA = ' 1080p CR WEB-DL DUAL AAC2.0 H.264-VARYG (Youjo Senki II, Dual-Audio, Multi-Subs)';
+    const TH = ' 1080p CR WEB-DL DUAL AAC2.0 H.264 (Youjo Senki, Dual-Audio, Multi-Subs)';
+    const eps = [
+      R('S02 · E01', 2158620, 'Saga of Tanya the Evil S02E01 Salamander Combat Team' + VA, 'Autre', '1080p', '1.4 GiB', '09/09/26', 47, 0),
+      R('S02 · E02', 2162088, '[ToonsHub] Saga of Tanya the Evil S02E02' + TH, 'Autre', '1080p', '1.4 GiB', '16/09/26', 82, 0),
+      R('S02 · E03', 2165255, 'Saga of Tanya the Evil S02E03 Well-Intentioned Mediator' + VA, 'Autre', '1080p', '1.4 GiB', '23/09/26', 51, 0),
+      R('S02 · E04', 2152449, 'Saga of Tanya the Evil S02E04 Operation Iron Hammer REPACK 1080p CR WEB-DL MULTi AAC2.0 H.264-VARYG (Youjo Senki II, Multi-Audio, Multi-Subs)', 'MULTi', '1080p', '1.5 GiB', '28/08/26', 98, 0),
+      R('S02 · E05', 2170806, '[ToonsHub] Saga of Tanya the Evil S02E05' + TH, 'Autre', '1080p', '1.4 GiB', '07/10/26', 77, 0),
+      R('S02 · E06', 2173894, '[ToonsHub] Saga of Tanya the Evil S02E06' + TH, 'Autre', '1080p', '1.4 GiB', '14/10/26', 80, 1),
+      R('S02 · E07', 2176851, 'Saga of Tanya the Evil S02E07 Purgatory 1080p CR WEB-DL DUAL AAC2.0 H.264-VARYG (Youjo Senki Movie, Dual-Audio, Multi-Subs)', 'Autre', '1080p', '1.4 GiB', '21/10/26', 119, 2),
+      R('S02 · E08', 2179691, 'Saga of Tanya the Evil S02E08 Torpedo Strike' + VA, 'Autre', '1080p', '1.4 GiB', '28/10/26', 88, 1),
+      R('S02 · E09', 2182335, 'Saga of Tanya the Evil S02E09 Sightseeing Tour' + VA, 'Autre', '1080p', '1.4 GiB', '04/11/26', 88, 3),
+      R('S02 · E10', 2184976, '[ToonsHub] Saga of Tanya the Evil S02E10' + TH, 'Autre', '1080p', '1.4 GiB', '11/11/26', 143, 4),
+      R('S02 · E11', 2187579, 'Saga of Tanya the Evil S02E11 Hourglass' + VA, 'Autre', '1080p', '1.4 GiB', '18/11/26', 184, 6),
+      R('S02 · E12', 2165925, '[ToonsHub] Saga of Tanya the Evil S02E12 REPACK 1080p CR WEB-DL AAC2.0 H.264 (Youjo Senki, Multi-Subs)', 'Autre', '1080p', '1.4 GiB', '25/09/26', 111, 0)
+    ];
+    return {
+      sections: [
+        sec('Films', [
+          R('Film', 2173257, '[ToonsHub] Saga of Tanya the Evil the Movie (2019) 1080p CR WEB-DL DUAL AAC2.0 H.264 (Youjo Senki Movie, Dual-Audio, Multi-Subs)', 'Autre', '1080p', '5.8 GiB', '12/10/26', 40, 1)
+        ]),
+        sec('Packs et saisons complètes', [
+          R('S02 · complet', 2179814, '[T3KASHi] Saga of Tanya the Evil S02 MULTi 1080p CR WEBRiP AAC 2.0 x.265 (Youjo Senki II, VF, VOSTFR)', 'MULTi', '1080p', '3.7 GiB', '28/10/26', 33, 1)
+        ]),
+        sec('Épisodes', eps, { hasTrack: true, track: eps.map((e) => ({ n: e.code.slice(-3), anchor: e.anchor })) }),
+        sec('Non classés', [
+          R('?', 2173252, 'Saga of Tanya the Evil 2019 1080p CR WEB-DL DUAL AAC2.0 H.264-VARYG (Youjo Senki, Dual-Audio, Multi-Subs)', 'Autre', '1080p', '5.8 GiB', '12/10/26', 8, 0)
+        ])
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

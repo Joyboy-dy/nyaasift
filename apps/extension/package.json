@@ -1,0 +1,30 @@
+{
+  "name": "@nyaasift/extension",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Range les releases de Nyaa : panneau latéral, barre sur nyaa.si, bouton sur AniList et MyAnimeList.",
+  "type": "module",
+  "scripts": {
+    "dev:chrome": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "typecheck": "wxt prepare && tsc --noEmit",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@wxt-dev/module-react": "^1.1.5",
+    "typescript": "^5.9.3",
+    "web-ext": "^10.5.0",
+    "wxt": "^0.21.3"
+  }
+}

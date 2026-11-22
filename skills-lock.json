@@ -1,0 +1,71 @@
+{
+  "version": 2,
+  "skills": {
+    "chromatic-design": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/chromatic-design/SKILL.md",
+      "computedHash": "d5568644b69766021e7fbbdf7850bc29db4e741b3fe8e8fec34cfef90685d05b"
+    },
+    "codebase-architecture-guardian": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/codebase-architecture-guardian/SKILL.md",
+      "computedHash": "f3ca59b20895db267c7b9e3c5b04ddb9f0af36e9f37d08c1c69e6e1cd5446a32"
+    },
+    "container-compose-ghcr-deployment": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/container-compose-ghcr-deployment/SKILL.md",
+      "computedHash": "c216d85f815e372bee24ba5e658486d758990894e6fa83a10ee74eb5a05d7444"
+    },
+    "form-ux-validation": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/form-ux-validation/SKILL.md",
+      "computedHash": "9a2e2d636e4a4b8c9ccb5067f39cfdb4be359a6bea0441403115a7bfa7053438"
+    },
+    "frontend-aesthetics": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-aesthetics/SKILL.md",
+      "computedHash": "61be74a9992f3779f4b7ed9e7ec5255001d41d2561ed0842caaf6b03a2760fd0"
+    },
+    "responsive-interface-guardian": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/responsive-interface-guardian/SKILL.md",
+      "computedHash": "c0698387240b4afc25bf0714d1942d4584bfc332cafa2a6318df70119db6b61f"
+    },
+    "senior-frontend-engineering": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/senior-frontend-engineering/SKILL.md",
+      "computedHash": "01b49d11356c0616d66e6793dcc0a4008a3d3a94281863f12ab6ed15f068b81d"
+    },
+    "shadcn": {
+      "source": "shadcn-ui/ui",
+      "sourceType": "github",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "computedHash": "388962d16c7a4f13aaeee0d8f128e50a87df8553d42ef7988c39c0e1c74a40e8"
+    },
+    "tanstack-start-architecture": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/tanstack-start-architecture/SKILL.md",
+      "computedHash": "7e46a7972ae8ff5fb2bede678b102017364bf42386d46c4185449d0edb81e3d6"
+    },
+    "ui-modern-2026": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ui-modern-2026/SKILL.md",
+      "computedHash": "460d8c0fddbc49b482e50a58f9c31655b8fd1fc47bb1e4eaa9dd95e0925d5ea2"
+    },
+    "ux-ui-audit": {
+      "source": "Joyboy-dy/felicio-ai-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ux-ui-audit/SKILL.md",
+      "computedHash": "8b2bfd4ce7f2ba1c23b557f155e688c8afde922b0cbd3dd23873544ed0f66e10"
+    }
+  }
+}

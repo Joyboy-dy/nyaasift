@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · Résultats filtrés en voix FR</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.ns{--bg:#141415;--deep:#0f0f10;--card:#19191b;--raised:#232325;--line:rgba(237,237,237,.08);--line2:rgba(237,237,237,.14);--text:#ededed;--text2:#a1a1a6;--muted:#85858b;--accent:#f2cf4a;--ink:#141415;--seed:#4cc38a;--leech:#ef6b6f;min-height:100%;background:var(--bg);color:var(--text);font-family:Geist,system-ui,sans-serif;font-size:14px;line-height:20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;min-height:64px;box-sizing:border-box;padding:12px 32px;background:var(--deep);border-bottom:1px solid var(--line)}
+.brand{font-family:'Geist Mono',ui-monospace,monospace;font-weight:500;font-size:18px;color:var(--text);text-decoration:none}
+.brand span{color:var(--muted)}
+.search{flex:1 1 420px;max-width:720px;display:flex;gap:8px}
+.search input{flex:1;min-width:0;height:40px;box-sizing:border-box;padding:0 12px;background:var(--card);color:var(--text);border:1px solid var(--line2);border-radius:8px;font:inherit;font-size:15px}
+.btn{height:40px;padding:0 16px;display:inline-flex;align-items:center;gap:8px;background:var(--raised);color:var(--text);border:1px solid var(--line);border-radius:8px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.btn.primary{background:var(--accent);color:var(--ink);border-color:transparent;box-shadow:none}
+.topnav{margin-left:auto}
+.topnav a{color:var(--text2);text-decoration:none;font-size:14px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px 64px}
+.anime{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;padding:32px 0 24px}
+.cover{width:120px;height:168px;flex:none;box-sizing:border-box;border-radius:12px;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;background:linear-gradient(180deg,#28282c,#1b1b1e);border:1px solid var(--line)}
+.cover b{font-weight:500;font-size:15px;line-height:18px}
+.cover small{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;line-height:16px;color:var(--muted)}
+.anime-info{flex:1 1 400px;display:flex;flex-direction:column;gap:4px}
+.eyebrow{margin:0;font-size:13px;color:var(--muted)}
+.anime h1{margin:0;font-size:32px;line-height:36px;font-weight:500;letter-spacing:-0.01em}
+.alt{margin:0 0 8px;color:var(--text2);font-size:16px;line-height:24px}
+.searched{margin:0;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tag{padding:2px 8px;border-radius:6px;background:var(--raised);color:var(--text2);font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;line-height:20px}
+.filters{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.fg{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;border:0;min-width:0}
+.fg legend,.fg>label{padding:0;font-size:12px;line-height:16px;color:var(--muted)}
+.seg{display:inline-flex;gap:2px;padding:2px;background:var(--deep);border:1px solid var(--line);border-radius:8px}
+.seg button{height:32px;padding:0 12px;display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text2);border:0;border-radius:6px;font:inherit;font-size:13px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--raised);color:var(--text);font-weight:500;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.field{height:38px;box-sizing:border-box;padding:0 10px;background:var(--deep);color:var(--text);border:1px solid var(--line);border-radius:8px;font:inherit;font-size:13px}
+.field.on{background:var(--raised);border-color:var(--line2)}
+.checks{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--text2)}
+.checks label{display:flex;gap:8px;align-items:center}
+.checks input{accent-color:#f2cf4a;margin:0;width:16px;height:16px}
+.reset{margin-left:auto;align-self:center;font-size:13px;color:var(--text2)}
+.dot{width:8px;height:8px;border-radius:4px;display:inline-block;flex:none}
+.dot.fr{background:var(--accent)}
+.dot.sub{box-shadow:inset 0 0 0 1.5px var(--text2)}
+.active{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 0;font-size:13px;color:var(--muted)}
+.chip{height:28px;padding:0 4px 0 10px;display:inline-flex;align-items:center;gap:8px;background:var(--raised);color:var(--text);border:1px solid var(--line);border-radius:6px;font:inherit;font-size:13px;cursor:pointer}
+.chip svg{color:var(--muted)}
+.summary{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin:12px 0 0;font-size:13px;color:var(--muted)}
+.sec h2{margin:32px 0 12px;font-size:16px;line-height:24px;font-weight:500;display:flex;align-items:baseline;gap:8px}
+.count{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:400;color:var(--muted)}
+.track{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 12px}
+.track a{width:40px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:var(--raised);color:var(--text2);font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;text-decoration:none}
+.track a.cur{background:var(--text);color:var(--ink)}
+.tbl{border:1px solid var(--line);border-radius:12px;overflow-x:auto;background:var(--card)}
+.row{display:grid;grid-template-columns:112px minmax(340px,1fr) 96px 64px 88px 96px 48px 48px 96px;align-items:center;min-height:44px;min-width:1040px;border-top:1px solid var(--line)}
+.row>*{padding:0 12px}
+.row.head{border-top:0;min-height:36px;font-size:12px;color:var(--muted)}
+.row.open{background:var(--raised)}
+.row.other{background:var(--deep);font-size:13px}
+.row.other .code{color:var(--muted);padding-left:28px}
+.code{font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;white-space:nowrap}
+.name{display:flex;gap:8px;align-items:center;min-width:0}
+.name a{flex:1;min-width:0;color:var(--text);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.more{flex:none;height:24px;padding:0 6px 0 8px;display:inline-flex;align-items:center;gap:4px;background:transparent;color:var(--text2);border:1px solid var(--line2);border-radius:6px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;cursor:pointer}
+.num{text-align:right;font-variant-numeric:tabular-nums;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px}
+.dim{color:var(--muted);font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}
+.seed{color:var(--seed)}.leech{color:var(--leech)}
+.lang{display:inline-flex;align-items:center;gap:8px;font-size:13px}
+.links{display:flex;justify-content:flex-end;gap:4px}
+.links a{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;color:var(--muted)}
+.empty{margin:0;padding:16px;border:1px dashed var(--line2);border-radius:12px;font-size:13px;line-height:20px;color:var(--text2)}
+</style>
+</helmet>
+<div class="ns">
+  <header class="top">
+    <a class="brand" href="Main.dc.html">nyaa<span>sift</span></a>
+    <form class="search" role="search">
+      <label for="q" class="sr">Titre de l'anime</label>
+      <input id="q" type="search" value="saga tanya">
+      <button type="submit" class="btn primary">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        Chercher
+      </button>
+    </form>
+    <nav class="topnav" aria-label="Liens"><a href="#">Code source</a></nav>
+  </header>
+
+  <main class="wrap">
+    <section class="anime" aria-label="Anime reconnu">
+      <div class="cover" role="img" aria-label="Affiche de Youjo Senki"><b>Youjo Senki</b><small>AniList · TV</small></div>
+      <div class="anime-info">
+        <p class="eyebrow">Anime reconnu</p>
+        <h1>Youjo Senki</h1>
+        <p class="alt">Saga of Tanya the Evil</p>
+        <p class="searched">Cherché sur Nyaa sous
+          <span class="tag">saga tanya</span><span class="tag">Youjo Senki</span><span class="tag">Saga of Tanya the Evil</span><span class="tag">+ (multi|vf|vff|french|vostfr)</span>
+        </p>
+      </div>
+      <a class="btn" href="Correspondance.dc.html">Pas le bon anime ?</a>
+    </section>
+
+    <form class="filters" aria-label="Filtres">
+      <fieldset class="fg"><legend>Langue</legend>
+        <div class="seg">
+          <button type="button" aria-pressed="false">Toutes</button>
+          <button type="button" aria-pressed="true"><span class="dot fr"></span>Voix FR</button>
+          <button type="button" aria-pressed="false"><span class="dot fr"></span>MULTi</button>
+          <button type="button" aria-pressed="false"><span class="dot sub"></span>VOSTFR</button>
+        </div>
+      </fieldset>
+      <fieldset class="fg"><legend>Qualité</legend>
+        <div class="seg">
+          <button type="button" aria-pressed="false">Toutes</button>
+          <button type="button" aria-pressed="false">2160p</button>
+          <button type="button" aria-pressed="true">1080p</button>
+          <button type="button" aria-pressed="false">720p</button>
+        </div>
+      </fieldset>
+      <div class="fg"><label for="season">Saison</label>
+        <select id="season" class="field on"><option>Toutes</option><option>Saison 1</option><option selected>Saison 2</option></select>
+      </div>
+      <fieldset class="fg"><legend>Type</legend>
+        <div class="seg">
+          <button type="button" aria-pressed="true">Tout</button>
+          <button type="button" aria-pressed="false">Séries</button>
+          <button type="button" aria-pressed="false">Films</button>
+        </div>
+      </fieldset>
+      <div class="fg"><label for="seeds">Seeders min.</label>
+        <input id="seeds" class="field" type="number" value="1" min="0" style="width: 72px;">
+      </div>
+      <div class="checks">
+        <label><input type="checkbox"> Toutes les releases de chaque épisode</label>
+        <label><input type="checkbox"> Recherche brute, sans AniList</label>
+      </div>
+      <a class="reset" href="Resultats.dc.html">Réinitialiser</a>
+    </form>
+
+    <div class="active">Filtres actifs
+      <button type="button" class="chip" aria-label="Retirer le filtre Voix FR"><span class="dot fr"></span>Voix FR <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"></path></svg></button>
+      <button type="button" class="chip" aria-label="Retirer le filtre 1080p">1080p <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"></path></svg></button>
+      <button type="button" class="chip" aria-label="Retirer le filtre Saison 2">Saison 2 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"></path></svg></button>
+    </div>
+    <p class="summary"><span>Meilleure release de chaque épisode · « autres » déplie toutes ses releases</span><span>La recherche et les filtres sont dans l'adresse de la page, tu peux la partager</span></p>
+
+    <sc-for list="{{sections}}" as="s" hint-placeholder-count="3">
+      <section class="sec">
+        <h2>{{s.title}} <span class="count">{{s.count}}</span></h2>
+        <sc-if value="{{s.hasTrack}}" hint-placeholder-val="{{false}}">
+          <nav class="track" aria-label="Aller à un épisode">
+            <sc-for list="{{s.track}}" as="t" hint-placeholder-count="12"><a class="{{t.cls}}" href="#{{t.anchor}}">{{t.n}}</a></sc-for>
+          </nav>
+        </sc-if>
+        <sc-if value="{{s.isEmpty}}" hint-placeholder-val="{{false}}">
+          <p class="empty">{{s.emptyText}}</p>
+        </sc-if>
+        <sc-if value="{{s.hasRows}}" hint-placeholder-val="{{true}}">
+          <div class="tbl" role="table" aria-label="{{s.title}}">
+            <div class="row head" role="row">
+              <span role="columnheader">Épisode</span><span role="columnheader">Nom</span><span role="columnheader">Langue</span><span role="columnheader">Qualité</span><span class="num" role="columnheader">Taille</span><span role="columnheader">Date</span><span class="num" role="columnheader" title="Seeders">S</span><span class="num" role="columnheader" title="Leechers">L</span><span class="num" role="columnheader">Liens</span>
+            </div>
+            <sc-for list="{{s.rows}}" as="r" hint-placeholder-count="3">
+              <div class="row {{r.cls}}" role="row" id="{{r.anchor}}">
+                <span class="code" role="cell">{{r.code}}</span>
+                <span class="name" role="cell">
+                  <a href="https://nyaa.si/view/{{r.id}}" title="{{r.name}}">{{r.name}}</a>
+                  <sc-if value="{{r.hasOthers}}" hint-placeholder-val="{{false}}">
+                    <button type="button" class="more" aria-expanded="{{r.expanded}}">{{r.othersLabel}}
+                      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="{{r.chevron}}"></path></svg>
+                    </button>
+                  </sc-if>
+                </span>
+                <span role="cell"><span class="lang"><span class="dot fr"></span>{{r.lang}}</span></span>
+                <span class="dim" role="cell">1080p</span>
+                <span class="num" role="cell">{{r.size}}</span>
+                <span class="dim" role="cell">{{r.date}}</span>
+                <span class="num seed" role="cell">{{r.s}}</span>
+                <span class="num leech" role="cell">{{r.l}}</span>
+                <span class="links" role="cell">
+                  <a href="https://nyaa.si/view/{{r.id}}" aria-label="Ouvrir la page Nyaa"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a>
+                  <a href="#" aria-label="Ouvrir le lien magnet"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a6 6 0 0 0 12 0V3"></path><path d="M6 7h4M14 7h4"></path><path d="M10 3v8a2 2 0 0 0 4 0V3"></path></svg></a>
+                </span>
+              </div>
+              <sc-for list="{{r.others}}" as="o" hint-placeholder-count="0">
+                <div class="row other" role="row">
+                  <span class="code" role="cell">autre</span>
+                  <span class="name" role="cell"><a href="https://nyaa.si/view/{{o.id}}" title="{{o.name}}">{{o.name}}</a></span>
+                  <span role="cell"><span class="lang"><span class="dot fr"></span>MULTi</span></span>
+                  <span class="dim" role="cell">1080p</span>
+                  <span class="num" role="cell">{{o.size}}</span>
+                  <span class="dim" role="cell">{{o.date}}</span>
+                  <span class="num seed" role="cell">{{o.s}}</span>
+                  <span class="num leech" role="cell">{{o.l}}</span>
+                  <span class="links" role="cell">
+                    <a href="https://nyaa.si/view/{{o.id}}" aria-label="Ouvrir la page Nyaa"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a>
+                    <a href="#" aria-label="Ouvrir le lien magnet"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a6 6 0 0 0 12 0V3"></path><path d="M6 7h4M14 7h4"></path><path d="M10 3v8a2 2 0 0 0 4 0V3"></path></svg></a>
+                  </span>
+                </div>
+              </sc-for>
+            </sc-for>
+          </div>
+        </sc-if>
+      </section>
+    </sc-for>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const R = (code, id, name, size, date, s, l, extra) => Object.assign({ code, id, name, lang: 'MULTi', size, date, s, l, cls: '', anchor: 'f-' + id, hasOthers: true, expanded: 'false', othersLabel: 'autres', chevron: 'M6 9l6 6 6-6', others: [] }, extra || {});
+    const sec = (title, rows, extra) => Object.assign({ title, rows, count: String(rows.length), hasRows: rows.length > 0, isEmpty: rows.length === 0, emptyText: '', hasTrack: false, track: [] }, extra || {});
+    const TS = (e) => 'Saga of Tanya the Evil S02E' + e + ' MULTi AD 1080p CR WEB-DL AAC2.0 x264-Tsundere-Raws (VF, FRENCH, SUBFRENCH, VOSTFR, Youjo Senki II, The Military Chronicles of a Little Girl II, Youjo Senki 2nd Season, Saga of Tanya the Evil II)';
+    const VM = (t) => 'Saga of Tanya the Evil ' + t + ' 1080p CR WEB-DL MULTi AAC2.0 H.264-VARYG (Youjo Senki II, Multi-Audio, Multi-Subs)';
+    const eps = [
+      R('S02 · E01', 2170823, TS('01'), '1.4 GiB', '07/10/26', 39, 0),
+      R('S02 · E02', 2170820, TS('02'), '1.4 GiB', '07/10/26', 44, 0),
+      R('S02 · E03', 2170822, TS('03'), '1.4 GiB', '07/10/26', 40, 0),
+      R('S02 · E04', 2152449, 'Saga of Tanya the Evil S02E04 Operation Iron Hammer REPACK 1080p CR WEB-DL MULTi AAC2.0 H.264-VARYG (Youjo Senki II, Multi-Audio, Multi-Subs)', '1.5 GiB', '28/08/26', 98, 0),
+      R('S02 · E05', 2151977, VM('S02E05 Unlucky Draw'), '1.5 GiB', '26/08/26', 62, 0),
+      R('S02 · E06', 2155297, VM('S02E06 Decoy'), '1.5 GiB', '02/09/26', 69, 0),
+      R('S02 · E07', 2158702, 'Saga of Tanya the Evil S02E07 Purgatory 1080p CR WEB-DL MULTi AAC2.0 H.264-VARYG (Youjo Senki Movie, Multi-Audio, Multi-Subs)', '1.5 GiB', '09/09/26', 61, 0),
+      R('S02 · E08', 2162164, VM('S02E08 Torpedo Strike'), '1.5 GiB', '16/09/26', 55, 0),
+      R('S02 · E09', 2165314, VM('S02E09 Sightseeing Tour'), '1.5 GiB', '23/09/26', 53, 0),
+      R('S02 · E10', 2167746, VM('S02E10 A Way to Survive'), '1.5 GiB', '30/09/26', 61, 0),
+      R('S02 · E11', 2170858, VM('S02E11 Hourglass'), '1.5 GiB', '07/10/26', 61, 0, {
+        cls: 'open', expanded: 'true', othersLabel: '2 autres', chevron: 'M6 15l6-6 6 6',
+        others: [
+          { id: 2179701, name: TS('11'), size: '1.4 GiB', date: '28/10/26', s: 39, l: 3 },
+          { id: 2187599, name: '[ToonsHub] Saga of Tanya the Evil S02E11 1080p CR WEB-DL MULTi AAC2.0 H.264 (Youjo Senki, Multi-Audio, Multi-Subs)', size: '1012.3 MiB', date: '18/11/26', s: 17, l: 4 }
+        ]
+      }),
+      R('S02 · E12', 2173947, VM('S02E12 Exit'), '1.4 GiB', '14/10/26', 65, 1)
+    ];
+    return {
+      sections: [
+        Object.assign(sec('Films', []), { emptyText: "Aucun film en voix FR. Le film de 2019 existe sur Nyaa en DUAL (anglais et japonais) : retire le filtre Langue pour le voir." }),
+        sec('Packs et saisons complètes', [
+          R('S02 · complet', 2179814, '[T3KASHi] Saga of Tanya the Evil S02 MULTi 1080p CR WEBRiP AAC 2.0 x.265 (Youjo Senki II, VF, VOSTFR)', '3.7 GiB', '28/10/26', 33, 1, { hasOthers: false })
+        ]),
+        sec('Épisodes', eps, { hasTrack: true, track: eps.map((e) => ({ n: e.code.slice(-3), anchor: e.anchor, cls: e.cls === 'open' ? 'cur' : '' })) })
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

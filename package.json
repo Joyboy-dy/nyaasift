@@ -1,0 +1,37 @@
+{
+  "name": "nyaasift",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter './apps/*' dev",
+    "build": "bun run --filter './apps/*' build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "typecheck": "bun run --filter '*' typecheck",
+    "test": "bun test",
+    "check:docs": "bun scripts/check-docs.ts",
+    "check:env": "bun scripts/check-env.ts",
+    "icons:generate": "bun scripts/icons/generate-icons.ts",
+    "icons:migrate": "bun scripts/icons/migrate-icons.ts",
+    "check:icons": "bun scripts/icons/migrate-icons.ts --check",
+    "typecheck:scripts": "tsc -p scripts",
+    "check:ui": "bun scripts/check-ui-cursor-contracts.mjs",
+    "check": "bun run format:check && bun run lint && bun run typecheck && bun run test && bun run check:docs && bun run check:env && bun run check:icons && bun run typecheck:scripts && bun run check:ui"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/bun": "^1.4.5",
+    "eslint": "^10.15.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "prettier": "^3.10.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "6",
+    "typescript-eslint": "^8.73.0"
+  }
+}

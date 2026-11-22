@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · Résultats sur téléphone</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.card{display:flex;flex-direction:column;gap:8px;padding:16px;background:#19191b;border:1px solid rgba(237,237,237,.08);border-radius:12px}
+.card .title{color:#ededed;text-decoration:none;font-size:14px;line-height:20px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;line-height:16px;color:#85858b}
+.code{font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#ededed;font-weight:500}
+.lang{display:inline-flex;align-items:center;gap:6px;font-family:Geist,system-ui,sans-serif;font-size:13px;color:#ededed}
+.dot{width:8px;height:8px;border-radius:4px;display:inline-block;background:#f2cf4a}
+.seed{color:#4cc38a}
+.acts{display:flex;gap:8px}
+.act{flex:1;height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#232325;border:1px solid rgba(237,237,237,.08);border-radius:8px;color:#ededed;text-decoration:none;font-size:14px;font-weight:500}
+.chip{flex:none;height:36px;padding:0 10px;display:inline-flex;align-items:center;gap:8px;background:#232325;color:#ededed;border:1px solid rgba(237,237,237,.08);border-radius:8px;font:inherit;font-size:13px;cursor:pointer}
+.chip svg{color:#85858b}
+.track{display:flex;flex-wrap:wrap;gap:4px}
+.track a{width:40px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:#232325;color:#a1a1a6;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;text-decoration:none}
+h2{margin:8px 0 0;font-size:16px;line-height:24px;font-weight:500;display:flex;align-items:baseline;gap:8px}
+.count{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:400;color:#85858b}
+</style>
+</helmet>
+<div style="width: 390px; min-height: 1560px; box-sizing: border-box; background: #141415; color: #ededed; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 20px; display: flex; flex-direction: column;">
+  <header style="display: flex; flex-direction: column; gap: 12px; padding: 12px 16px 16px; background: #0f0f10; border-bottom: 1px solid rgba(237,237,237,.08);">
+    <div style="display: flex; align-items: center; justify-content: space-between; height: 32px;">
+      <a href="Main.dc.html" style="font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 500; font-size: 18px; color: #ededed; text-decoration: none;">nyaa<span style="color: #85858b;">sift</span></a>
+      <a href="#" style="font-size: 13px; color: #a1a1a6; text-decoration: none;">Code source</a>
+    </div>
+    <form role="search" style="display: flex; gap: 8px;">
+      <label for="q" class="sr">Titre de l'anime</label>
+      <input id="q" type="search" value="saga tanya" style="flex: 1; min-width: 0; height: 44px; box-sizing: border-box; padding: 0 12px; background: #19191b; color: #ededed; border: 1px solid rgba(237,237,237,.14); border-radius: 8px; font: inherit; font-size: 16px;">
+      <button type="submit" aria-label="Chercher" style="width: 48px; height: 44px; display: inline-flex; align-items: center; justify-content: center; background: #f2cf4a; color: #141415; border: 0; border-radius: 8px;">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      </button>
+    </form>
+  </header>
+
+  <main style="display: flex; flex-direction: column; gap: 16px; padding: 16px 16px 32px;">
+    <section aria-label="Anime reconnu" style="display: flex; gap: 12px; align-items: flex-end;">
+      <div role="img" aria-label="Affiche de Youjo Senki" style="width: 64px; height: 88px; flex: none; box-sizing: border-box; border-radius: 8px; background: linear-gradient(180deg, #28282c, #1b1b1e); border: 1px solid rgba(237,237,237,.08);"></div>
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px;">
+        <h1 style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 500;">Youjo Senki</h1>
+        <p style="margin: 0; font-size: 13px; color: #a1a1a6;">Saga of Tanya the Evil</p>
+        <a href="Correspondance.dc.html" style="font-size: 13px; color: #a1a1a6; min-height: 28px; display: inline-flex; align-items: center;">Pas le bon anime ?</a>
+      </div>
+    </section>
+
+    <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;">
+      <button type="button" class="chip" style="font-weight: 500;">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>
+        Filtres <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: #85858b;">3</span>
+      </button>
+      <button type="button" class="chip" aria-label="Retirer Voix FR"><span class="dot"></span>Voix FR <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"></path></svg></button>
+      <button type="button" class="chip" aria-label="Retirer 1080p">1080p <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"></path></svg></button>
+      <button type="button" class="chip" aria-label="Retirer Saison 2">Saison 2 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"></path></svg></button>
+    </div>
+
+    <h2>Films <span class="count">0</span></h2>
+    <p style="margin: 0; padding: 12px; border: 1px dashed rgba(237,237,237,.14); border-radius: 12px; font-size: 13px; color: #a1a1a6;">Aucun film en voix FR. Le film de 2019 existe en DUAL : retire le filtre Langue pour le voir.</p>
+
+    <h2>Packs et saisons complètes <span class="count">1</span></h2>
+    <article class="card">
+      <div class="meta"><span class="code">S02 · complet</span><span class="lang"><span class="dot"></span>MULTi</span><span>1080p</span><span>3.7 GiB</span></div>
+      <a class="title" href="https://nyaa.si/view/2179814">[T3KASHi] Saga of Tanya the Evil S02 MULTi 1080p CR WEBRiP AAC 2.0 x.265 (Youjo Senki II, VF, VOSTFR)</a>
+      <div class="meta"><span class="seed">33 seeders</span><span>1 leecher</span><span>28/10/26</span></div>
+      <div class="acts"><a class="act" href="https://nyaa.si/view/2179814">Page Nyaa</a><a class="act" href="#">Magnet</a></div>
+    </article>
+
+    <h2>Épisodes <span class="count">12</span></h2>
+    <nav class="track" aria-label="Aller à un épisode">
+      <sc-for list="{{track}}" as="t" hint-placeholder-count="12"><a href="#">{{t}}</a></sc-for>
+    </nav>
+    <sc-for list="{{eps}}" as="e" hint-placeholder-count="3">
+      <article class="card">
+        <div class="meta"><span class="code">{{e.code}}</span><span class="lang"><span class="dot"></span>MULTi</span><span>1080p</span><span>{{e.size}}</span></div>
+        <a class="title" href="https://nyaa.si/view/{{e.id}}">{{e.name}}</a>
+        <div class="meta"><span class="seed">{{e.s}} seeders</span><span>{{e.date}}</span><sc-if value="{{e.more}}" hint-placeholder-val="{{false}}"><button type="button" aria-expanded="false" style="margin-left: auto; height: 32px; padding: 0 10px; background: transparent; color: #a1a1a6; border: 1px solid rgba(237,237,237,.14); border-radius: 6px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px;">2 autres</button></sc-if></div>
+        <div class="acts"><a class="act" href="https://nyaa.si/view/{{e.id}}">Page Nyaa</a><a class="act" href="#">Magnet</a></div>
+      </article>
+    </sc-for>
+    <p style="margin: 0; font-size: 12px; color: #85858b; text-align: center;">Maquette : seules les cartes E10 à E12 sont dessinées</p>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const V = (t) => 'Saga of Tanya the Evil ' + t + ' 1080p CR WEB-DL MULTi AAC2.0 H.264-VARYG (Youjo Senki II, Multi-Audio, Multi-Subs)';
+    return {
+      track: ['E01', 'E02', 'E03', 'E04', 'E05', 'E06', 'E07', 'E08', 'E09', 'E10', 'E11', 'E12'],
+      eps: [
+        { code: 'S02 · E10', id: 2167746, name: V('S02E10 A Way to Survive'), size: '1.5 GiB', date: '30/09/26', s: 61, more: false },
+        { code: 'S02 · E11', id: 2170858, name: V('S02E11 Hourglass'), size: '1.5 GiB', date: '07/10/26', s: 61, more: true },
+        { code: 'S02 · E12', id: 2173947, name: V('S02E12 Exit'), size: '1.4 GiB', date: '14/10/26', s: 65, more: false }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

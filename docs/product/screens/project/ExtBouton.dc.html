@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · bouton sur une fiche d'anime</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+.nsbtn{height:36px;padding:0 12px;display:inline-flex;align-items:center;gap:8px;background:#141415;color:#ededed;border:1px solid rgba(237,237,237,.14);border-radius:8px;font-family:Geist,system-ui,sans-serif;font-size:13px;font-weight:500;text-decoration:none;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.nsbtn .dot{width:8px;height:8px;border-radius:4px;background:#f2cf4a;flex:none}
+.sk{border-radius:4px}
+.cap{margin:0;font-size:12px;color:#85858b;font-family:'Geist Mono',ui-monospace,monospace}
+</style>
+</helmet>
+<div style="width: 960px; height: 680px; box-sizing: border-box; padding: 32px; background: #141415; color: #ededed; font-family: Geist, system-ui, sans-serif; font-size: 14px; display: flex; flex-direction: column; gap: 24px;">
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <h1 style="margin: 0; font-size: 20px; line-height: 28px; font-weight: 500;">Bouton « Chercher sur Nyaa »</h1>
+    <p style="margin: 0; color: #a1a1a6;">Ajouté sous le titre d'une fiche AniList ou MyAnimeList. Il ouvre le panneau sur cet anime exact, sans deviner le titre</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 8px;">
+      <div aria-hidden="true" style="height: 300px; box-sizing: border-box; padding: 20px; border-radius: 12px; background: #eceef1; display: flex; gap: 16px;">
+        <div class="sk" style="width: 96px; height: 136px; background: #cfd3d9; border-radius: 6px; flex: none;"></div>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+          <div class="sk" style="width: 70%; height: 16px; background: #9aa1aa;"></div>
+          <div class="sk" style="width: 45%; height: 10px; background: #c3c8cf;"></div>
+          <span class="nsbtn" style="align-self: flex-start; margin-top: 6px;"><span class="dot"></span>Chercher sur Nyaa</span>
+          <div class="sk" style="width: 100%; height: 8px; background: #d5d9de; margin-top: 10px;"></div>
+          <div class="sk" style="width: 92%; height: 8px; background: #d5d9de;"></div>
+          <div class="sk" style="width: 85%; height: 8px; background: #d5d9de;"></div>
+        </div>
+      </div>
+      <figcaption class="cap">Fiche d'anime, page claire (schéma, pas la vraie page)</figcaption>
+    </figure>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 8px;">
+      <div aria-hidden="true" style="height: 300px; box-sizing: border-box; padding: 20px; border-radius: 12px; background: #1f2633; display: flex; gap: 16px;">
+        <div class="sk" style="width: 96px; height: 136px; background: #2e3646; border-radius: 6px; flex: none;"></div>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+          <div class="sk" style="width: 70%; height: 16px; background: #59647a;"></div>
+          <div class="sk" style="width: 45%; height: 10px; background: #3a4456;"></div>
+          <span class="nsbtn" style="align-self: flex-start; margin-top: 6px;"><span class="dot"></span>Chercher sur Nyaa</span>
+          <div class="sk" style="width: 100%; height: 8px; background: #2c3443; margin-top: 10px;"></div>
+          <div class="sk" style="width: 92%; height: 8px; background: #2c3443;"></div>
+          <div class="sk" style="width: 85%; height: 8px; background: #2c3443;"></div>
+        </div>
+      </div>
+      <figcaption class="cap">Fiche d'anime, page sombre (schéma, pas la vraie page)</figcaption>
+    </figure>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <p style="margin: 0; font-size: 13px; color: #a1a1a6;">États</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a class="nsbtn" href="ExtPanneau.dc.html"><span class="dot"></span>Chercher sur Nyaa</a>
+        <p class="cap">repos</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span class="nsbtn" style="background: #232325;"><span class="dot"></span>Chercher sur Nyaa</span>
+        <p class="cap">survol</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span class="nsbtn" aria-busy="true" style="color: #a1a1a6;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9"></path></svg>Ouverture du panneau</span>
+        <p class="cap">après le clic</p>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":960,"height":680}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

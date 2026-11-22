@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · panneau, recherche vide rattrapée</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:4px;display:inline-block;flex:none}
+.h{margin:16px 0 8px;font-size:13px;line-height:20px;font-weight:500;display:flex;align-items:baseline;gap:8px}
+.count{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:400;color:#85858b}
+.item{display:grid;grid-template-columns:72px 1fr auto;gap:4px 8px;align-items:center;padding:8px 8px 8px 12px;border-top:1px solid rgba(237,237,237,.08);text-decoration:none;color:#ededed}
+.code{font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;white-space:nowrap}
+.meta{grid-column:2;display:flex;gap:8px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#85858b}
+.grp{grid-column:2;font-size:12px;color:#a1a1a6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seed{color:#4cc38a}
+.list{background:#19191b;border:1px solid rgba(237,237,237,.08);border-radius:10px;overflow:hidden}
+.list .item:first-child{border-top:0}
+.ic{grid-row:1 / span 2;grid-column:3;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;color:#85858b}
+.tag{padding:1px 6px;border-radius:4px;background:#232325;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#ededed}
+</style>
+</helmet>
+<div style="width: 400px; min-height: 1000px; box-sizing: border-box; background: #141415; color: #ededed; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 20px; display: flex; flex-direction: column;">
+  <header style="display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0 12px 0 16px; border-bottom: 1px solid rgba(237,237,237,.08); background: #0f0f10;">
+    <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 500; font-size: 16px;">nyaa<span style="color: #85858b;">sift</span></span>
+    <a href="ExtReglages.dc.html" aria-label="Réglages" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: #a1a1a6;">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg>
+    </a>
+  </header>
+
+  <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px;">
+    <form role="search" style="display: flex; gap: 8px;">
+      <label for="q" class="sr">Titre de l'anime</label>
+      <input id="q" type="search" value="saga tanya" style="flex: 1; min-width: 0; height: 40px; box-sizing: border-box; padding: 0 12px; background: #19191b; color: #ededed; border: 1px solid rgba(237,237,237,.14); border-radius: 8px; font: inherit; font-size: 15px;">
+      <button type="submit" aria-label="Chercher" style="width: 44px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background: #f2cf4a; color: #141415; border: 0; border-radius: 8px;">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      </button>
+    </form>
+
+    <div role="status" style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #19191b; border: 1px solid rgba(237,237,237,.14); border-radius: 10px; font-size: 13px;">
+      <span>Venu de nyaa.si : rien pour « saga tanya »</span>
+      <span style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; color: #a1a1a6;">Cherché sous <span class="tag">Youjo Senki</span><span class="tag">Saga of Tanya the Evil</span></span>
+    </div>
+
+    <section aria-label="Anime reconnu" style="display: flex; gap: 12px; align-items: center; padding: 12px; background: #19191b; border: 1px solid rgba(237,237,237,.08); border-radius: 10px;">
+      <div role="img" aria-label="Affiche de Youjo Senki" style="width: 40px; height: 56px; flex: none; box-sizing: border-box; border-radius: 6px; background: linear-gradient(180deg, #2a2a2e, #1c1c1f); border: 1px solid rgba(237,237,237,.08);"></div>
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
+        <span style="font-weight: 500;">Youjo Senki</span>
+        <span style="font-size: 12px; color: #a1a1a6; display: inline-flex; align-items: center; gap: 6px;"><span class="dot" style="background: #f2cf4a;"></span>Voix FR · 1080p</span>
+      </div>
+      <a href="#" style="font-size: 12px; color: #a1a1a6;">changer</a>
+    </section>
+
+    <div>
+      <h2 class="h">Packs <span class="count">1</span></h2>
+      <div class="list">
+        <a class="item" href="https://nyaa.si/view/2179814">
+          <span class="code">S02</span>
+          <span class="grp">T3KASHi · MULTi · 1080p</span>
+          <span class="meta"><span>3.7 GiB</span><span class="seed">33 S</span></span>
+          <span class="ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a6 6 0 0 0 12 0V3"></path><path d="M6 7h4M14 7h4"></path><path d="M10 3v8a2 2 0 0 0 4 0V3"></path></svg></span>
+        </a>
+      </div>
+      <h2 class="h">Épisodes <span class="count">12</span></h2>
+      <div class="list">
+        <sc-for list="{{eps}}" as="e" hint-placeholder-count="6">
+          <a class="item" href="https://nyaa.si/view/{{e.id}}">
+            <span class="code">{{e.code}}</span>
+            <span class="grp">{{e.grp}}</span>
+            <span class="meta"><span>{{e.size}}</span><span class="seed">{{e.s}} S</span></span>
+            <span class="ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a6 6 0 0 0 12 0V3"></path><path d="M6 7h4M14 7h4"></path><path d="M10 3v8a2 2 0 0 0 4 0V3"></path></svg></span>
+          </a>
+        </sc-for>
+      </div>
+      <p style="margin: 12px 0 0; font-size: 12px; color: #85858b;">E07 à E12 plus bas, non dessinés ici</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":400,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const T = 'Tsundere-Raws · MULTi · 1080p', V = 'VARYG · MULTi · 1080p';
+    return {
+      eps: [
+        { code: 'S02 · E01', id: 2170823, grp: T, size: '1.4 GiB', s: 39 },
+        { code: 'S02 · E02', id: 2170820, grp: T, size: '1.4 GiB', s: 44 },
+        { code: 'S02 · E03', id: 2170822, grp: T, size: '1.4 GiB', s: 40 },
+        { code: 'S02 · E04', id: 2152449, grp: V, size: '1.5 GiB', s: 98 },
+        { code: 'S02 · E05', id: 2151977, grp: V, size: '1.5 GiB', s: 62 },
+        { code: 'S02 · E06', id: 2155297, grp: V, size: '1.5 GiB', s: 69 }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · Nyaa ne répond pas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tbl{border:1px solid rgba(237,237,237,.08);border-radius:12px;overflow-x:auto;background:#19191b}
+.row{display:grid;grid-template-columns:112px minmax(340px,1fr) 96px 64px 88px 96px 48px 48px 96px;align-items:center;min-height:44px;min-width:1040px;border-top:1px solid rgba(237,237,237,.08)}
+.row>*{padding:0 12px}
+.row.head{border-top:0;min-height:36px;font-size:12px;color:#85858b}
+.code{font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;white-space:nowrap}
+.name{min-width:0}
+.name a{display:block;color:#ededed;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.num{text-align:right;font-variant-numeric:tabular-nums;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px}
+.dim{color:#85858b;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}
+.seed{color:#4cc38a}.leech{color:#ef6b6f}
+.lang{display:inline-flex;align-items:center;gap:8px;font-size:13px}
+.dot{width:8px;height:8px;border-radius:4px;display:inline-block;flex:none;background:#f2cf4a}
+.links{display:flex;justify-content:flex-end;gap:4px}
+.links a{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;color:#85858b}
+h2{margin:32px 0 12px;font-size:16px;line-height:24px;font-weight:500;display:flex;align-items:baseline;gap:8px}
+.count{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;font-weight:400;color:#85858b}
+</style>
+</helmet>
+<div style="min-height: 1160px; background: #141415; color: #ededed; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 20px;">
+  <header style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; min-height: 64px; box-sizing: border-box; padding: 12px 32px; background: #0f0f10; border-bottom: 1px solid rgba(237,237,237,.08);">
+    <a href="Main.dc.html" style="font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 500; font-size: 18px; color: #ededed; text-decoration: none;">nyaa<span style="color: #85858b;">sift</span></a>
+    <form role="search" style="flex: 1 1 420px; max-width: 720px; display: flex; gap: 8px;">
+      <label for="q" class="sr">Titre de l'anime</label>
+      <input id="q" type="search" value="frieren" style="flex: 1; min-width: 0; height: 40px; box-sizing: border-box; padding: 0 12px; background: #19191b; color: #ededed; border: 1px solid rgba(237,237,237,.14); border-radius: 8px; font: inherit; font-size: 15px;">
+      <button type="submit" style="height: 40px; padding: 0 16px; display: inline-flex; align-items: center; gap: 8px; background: #f2cf4a; color: #141415; border: 0; border-radius: 8px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer;">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        Chercher
+      </button>
+    </form>
+  </header>
+
+  <main style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 64px;">
+    <div role="status" style="display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; padding: 12px 12px 12px 16px; background: #232325; border: 1px solid rgba(237,237,237,.14); border-radius: 12px;">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a1a1a6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+      <p style="flex: 1 1 480px; margin: 0; font-size: 14px;">Nyaa ne répond pas pour l'instant. <span style="color: #a1a1a6;">Voici les derniers résultats connus, de 13:47 ; les toutes dernières sorties peuvent manquer.</span></p>
+      <button type="button" disabled style="height: 36px; padding: 0 12px; background: transparent; color: #a1a1a6; border: 1px solid rgba(237,237,237,.14); border-radius: 8px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px;">nouvel essai dans 30 s</button>
+    </div>
+
+    <section aria-label="Anime reconnu" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; padding: 32px 0 8px;">
+      <div role="img" aria-label="Affiche de Sousou no Frieren" style="width: 120px; height: 168px; box-sizing: border-box; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; background: linear-gradient(180deg, #28282c, #1b1b1e); border: 1px solid rgba(237,237,237,.08);"><b style="font-weight: 500; font-size: 15px; line-height: 18px;">Sousou no Frieren</b><small style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: #85858b;">AniList · TV</small></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <p style="margin: 0; font-size: 13px; color: #85858b;">Anime reconnu</p>
+        <h1 style="margin: 0; font-size: 32px; line-height: 36px; font-weight: 500;">Sousou no Frieren</h1>
+        <p style="margin: 0 0 8px; font-size: 16px; line-height: 24px; color: #a1a1a6;">Frieren: Beyond Journey's End</p>
+        <p style="margin: 0; font-size: 13px; color: #85858b;">Filtres actifs · <span style="color: #ededed;">Voix FR · 1080p · Saison 2</span></p>
+      </div>
+    </section>
+
+    <h2>Packs et saisons complètes <span class="count">1</span></h2>
+    <div class="tbl" role="table" aria-label="Packs">
+      <div class="row head" role="row"><span role="columnheader">Épisode</span><span role="columnheader">Nom</span><span role="columnheader">Langue</span><span role="columnheader">Qualité</span><span class="num" role="columnheader">Taille</span><span role="columnheader">Date</span><span class="num" role="columnheader" title="Seeders">S</span><span class="num" role="columnheader" title="Leechers">L</span><span class="num" role="columnheader">Liens</span></div>
+      <div class="row" role="row"><span class="code" role="cell">S02 · complet</span><span class="name" role="cell"><a href="https://nyaa.si/view/2099586">[T3KASHi] Frieren Beyond Journeys End S02 MULTi 1080p CR WEBRiP AAC 2.0 x.265 (Sousou no Frieren, VF, VOSTFR)</a></span><span role="cell"><span class="lang"><span class="dot"></span>MULTi</span></span><span class="dim" role="cell">1080p</span><span class="num" role="cell">3.6 GiB</span><span class="dim" role="cell">18/04/26</span><span class="num seed" role="cell">31</span><span class="num leech" role="cell">0</span><span class="links" role="cell"><a href="https://nyaa.si/view/2099586" aria-label="Ouvrir la page Nyaa"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a><a href="#" aria-label="Ouvrir le lien magnet"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a6 6 0 0 0 12 0V3"></path><path d="M6 7h4M14 7h4"></path><path d="M10 3v8a2 2 0 0 0 4 0V3"></path></svg></a></span></div>
+    </div>
+
+    <h2>Épisodes <span class="count">{{count}}</span></h2>
+    <div class="tbl" role="table" aria-label="Épisodes">
+      <div class="row head" role="row"><span role="columnheader">Épisode</span><span role="columnheader">Nom</span><span role="columnheader">Langue</span><span role="columnheader">Qualité</span><span class="num" role="columnheader">Taille</span><span role="columnheader">Date</span><span class="num" role="columnheader" title="Seeders">S</span><span class="num" role="columnheader" title="Leechers">L</span><span class="num" role="columnheader">Liens</span></div>
+      <sc-for list="{{rows}}" as="r" hint-placeholder-count="5">
+        <div class="row" role="row"><span class="code" role="cell">{{r.code}}</span><span class="name" role="cell"><a href="https://nyaa.si/view/{{r.id}}" title="{{r.name}}">{{r.name}}</a></span><span role="cell"><span class="lang"><span class="dot"></span>MULTi</span></span><span class="dim" role="cell">1080p</span><span class="num" role="cell">{{r.size}}</span><span class="dim" role="cell">{{r.date}}</span><span class="num seed" role="cell">{{r.s}}</span><span class="num leech" role="cell">0</span><span class="links" role="cell"><a href="https://nyaa.si/view/{{r.id}}" aria-label="Ouvrir la page Nyaa"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"></path><path d="M20 4l-9 9"></path><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"></path></svg></a><a href="#" aria-label="Ouvrir le lien magnet"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a6 6 0 0 0 12 0V3"></path><path d="M6 7h4M14 7h4"></path><path d="M10 3v8a2 2 0 0 0 4 0V3"></path></svg></a></span></div>
+      </sc-for>
+    </div>
+
+    <p style="margin: 32px 0 0; font-size: 13px; color: #85858b;">Pour ménager Nyaa, nyaasift garde chaque recherche 5 minutes et attend avant de réessayer après un refus</p>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1160}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const T = (e) => "Frieren Beyond Journey's End S02E" + e + " MULTi 1080p WEB x264 AAC -Tsundere-Raws (CR) (VF, FRENCH, VOSTFR, Sousou no Frieren 2nd Season, Frieren: Beyond Journey's End Season 2)";
+    const A = (e) => "Frieren Beyond Journeys End S02E" + e + " MULTi AD 1080p CR WEB-DL AAC2.0 x264-Tsundere-Raws (VF, FRENCH, SUBFRENCH, VOSTFR, Frieren Beyond Journey's End Season 2, Sousou no Frieren 2nd Season)";
+    const rows = [
+      { code: 'S02 · E06', id: 2088606, name: T('06'), size: '1.4 GiB', date: '21/03/26', s: 33 },
+      { code: 'S02 · E07', id: 2090659, name: T('07'), size: '1.4 GiB', date: '27/03/26', s: 45 },
+      { code: 'S02 · E08', id: 2093431, name: T('08'), size: '1.4 GiB', date: '03/04/26', s: 37 },
+      { code: 'S02 · E09', id: 2096268, name: A('09'), size: '1.4 GiB', date: '10/04/26', s: 41 },
+      { code: 'S02 · E10', id: 2099424, name: A('10'), size: '1.4 GiB', date: '18/04/26', s: 34 }
+    ];
+    return { rows, count: String(rows.length) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>nyaasift · /admin · Membres</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ededed}a:hover{color:#f2cf4a}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nav a{height:32px;padding:0 12px;display:inline-flex;align-items:center;border-radius:8px;color:#a1a1a6;text-decoration:none;font-size:14px}
+.nav a[aria-current="page"]{background:#232325;color:#ededed;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.tabs{display:flex;gap:24px;border-bottom:1px solid rgba(237,237,237,.08)}
+.tabs a{padding:10px 0;color:#a1a1a6;text-decoration:none;font-size:14px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a[aria-current="page"]{color:#ededed;border-bottom-color:#ededed}
+.tbl{border:1px solid rgba(237,237,237,.08);border-radius:12px;overflow-x:auto;background:#19191b}
+.row{display:grid;grid-template-columns:minmax(140px,1fr) minmax(200px,1.3fr) 120px 170px 140px 260px;align-items:center;min-height:52px;min-width:1040px;border-top:1px solid rgba(237,237,237,.08)}
+.row>*{padding:0 16px}
+.row.head{border-top:0;min-height:36px;font-size:12px;color:#85858b}
+.row.off{color:#85858b}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#85858b}
+.st{display:inline-flex;align-items:center;gap:8px;font-size:13px}
+.st i{width:8px;height:8px;border-radius:4px;display:inline-block}
+.act{display:flex;justify-content:flex-end;gap:4px}
+.qbtn{height:32px;padding:0 10px;background:transparent;color:#a1a1a6;border:1px solid rgba(237,237,237,.08);border-radius:8px;font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
+.qbtn.danger{color:#ef6b6f}
+.f input{height:40px;box-sizing:border-box;padding:0 12px;background:#0f0f10;color:#ededed;border:1px solid rgba(237,237,237,.14);border-radius:8px;font:inherit;font-size:14px}
+</style>
+</helmet>
+<div style="min-height: 1000px; box-sizing: border-box; background: #141415; color: #ededed; font-family: Geist, system-ui, sans-serif; font-size: 14px; line-height: 20px;">
+  <header style="display: flex; align-items: center; gap: 24px; min-height: 64px; padding: 0 32px; background: #0f0f10; border-bottom: 1px solid rgba(237,237,237,.08);">
+    <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 500; font-size: 18px;">nyaa<span style="color: #85858b;">sift</span></span>
+    <nav class="nav" aria-label="Navigation" style="display: flex; gap: 4px;"><a href="Main.dc.html">Recherche</a><a href="#" aria-current="page">Admin</a></nav>
+    <span style="margin-left: auto; display: flex; align-items: center; gap: 12px; font-size: 13px; color: #a1a1a6;"><span class="mono" style="padding: 2px 6px; border: 1px solid rgba(237,237,237,.14); border-radius: 4px;">super admin</span><a href="#" style="color: #a1a1a6;">Déconnexion</a></span>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 32px 32px 64px; display: flex; flex-direction: column; gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <h1 style="margin: 0; font-size: 28px; line-height: 32px; font-weight: 500;">Admin</h1>
+      <nav class="tabs" aria-label="Sections de l'admin"><a href="#" aria-current="page">Membres</a><a href="AdminAdmins.dc.html">Administrateurs</a></nav>
+    </div>
+
+    <section aria-labelledby="inv" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; background: #19191b; border: 1px solid rgba(237,237,237,.14); border-radius: 12px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end;">
+        <div class="f" style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 8px;">
+          <label id="inv" for="invmail" style="font-size: 13px; color: #a1a1a6;">Inviter quelqu'un · e-mail facultatif, le lien ne marchera qu'avec lui</label>
+          <input id="invmail" type="email" placeholder="ami@exemple.fr">
+        </div>
+        <button type="button" style="height: 40px; padding: 0 16px; display: inline-flex; align-items: center; gap: 8px; background: #f2cf4a; color: #141415; border: 0; border-radius: 8px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer;">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+          Créer un lien d'invitation
+        </button>
+      </div>
+      <div role="status" style="display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding-top: 12px; border-top: 1px solid rgba(237,237,237,.08);">
+        <span style="font-size: 13px; color: #a1a1a6;">Lien créé pour lou@exemple.fr · une seule fois · 7 jours</span>
+        <code style="flex: 1 1 320px; min-width: 0; height: 36px; box-sizing: border-box; padding: 0 12px; display: flex; align-items: center; background: #0f0f10; border: 1px solid rgba(237,237,237,.08); border-radius: 8px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://[TON-DOMAINE]/invitation/k7Qm2xR9vLpa</code>
+        <button type="button" style="height: 36px; padding: 0 14px; background: #232325; color: #ededed; border: 1px solid rgba(237,237,237,.08); border-radius: 8px; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer;">Copier</button>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
+      <p style="margin: 0; color: #a1a1a6;">Membres · <span class="mono" style="font-size: 13px; color: #a1a1a6;">6 comptes · 1 suspendu · 1 invitation en attente</span></p>
+      <label for="find" class="sr">Filtrer les membres</label>
+      <input id="find" type="search" placeholder="Filtrer" style="height: 36px; width: 240px; box-sizing: border-box; padding: 0 12px; background: #19191b; color: #ededed; border: 1px solid rgba(237,237,237,.14); border-radius: 8px; font: inherit; font-size: 13px;">
+    </div>
+
+    <div class="tbl" role="table" aria-label="Membres">
+      <div class="row head" role="row"><span role="columnheader">Nom</span><span role="columnheader">E-mail</span><span role="columnheader">Rôle</span><span role="columnheader">Statut</span><span role="columnheader">Activité</span><span role="columnheader" style="text-align: right;">Actions</span></div>
+      <sc-for list="{{rows}}" as="r" hint-placeholder-count="7">
+        <div class="row {{r.cls}}" role="row">
+          <span role="cell" style="font-weight: 500;">{{r.name}}</span>
+          <span role="cell" class="mono" style="font-size: 13px;">{{r.email}}</span>
+          <span role="cell" style="font-size: 13px;">{{r.role}}</span>
+          <span role="cell"><span class="st"><i style="{{r.dot}}"></i>{{r.status}}</span></span>
+          <span role="cell" class="mono">{{r.last}}</span>
+          <span role="cell" class="act">
+            <sc-for list="{{r.actions}}" as="a" hint-placeholder-count="2"><button type="button" class="qbtn {{a.cls}}">{{a.label}}</button></sc-for>
+          </span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin: 0; font-size: 13px; color: #85858b;">Suspendre ferme les sessions tout de suite et bloque la connexion, sans rien effacer. Retirer supprime le compte</p>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const on = 'background: #4cc38a;', off = 'background: #ef6b6f;', wait = 'box-shadow: inset 0 0 0 1.5px #a1a1a6;', me = 'background: #ededed;';
+    const M = [{ label: 'Lien mot de passe', cls: '' }, { label: 'Suspendre', cls: '' }, { label: 'Retirer', cls: 'danger' }];
+    return {
+      rows: [
+        { name: 'Toi', email: 'toi@exemple.fr', role: 'Super admin', status: 'Actif', dot: me, last: 'maintenant', cls: '', actions: [] },
+        { name: 'Mira', email: 'mira@exemple.fr', role: 'Admin', status: 'Actif', dot: on, last: 'il y a 2 h', cls: '', actions: [{ label: 'Lien mot de passe', cls: '' }] },
+        { name: 'Kenji', email: 'kenji@exemple.fr', role: 'Membre', status: 'Actif', dot: on, last: 'hier', cls: '', actions: M },
+        { name: 'Sam', email: 'sam@exemple.fr', role: 'Membre', status: 'Actif', dot: on, last: 'il y a 5 j', cls: '', actions: M },
+        { name: 'Nadia', email: 'nadia@exemple.fr', role: 'Membre', status: 'Actif', dot: on, last: 'il y a 12 j', cls: '', actions: M },
+        { name: 'Théo', email: 'theo@exemple.fr', role: 'Membre', status: 'Suspendu', dot: off, last: 'il y a 1 mois', cls: 'off', actions: [{ label: 'Réactiver', cls: '' }, { label: 'Retirer', cls: 'danger' }] },
+        { name: '—', email: 'lou@exemple.fr', role: 'Invité', status: 'Invitation · 7 j', dot: wait, last: "créée aujourd'hui", cls: '', actions: [{ label: 'Copier le lien', cls: '' }, { label: 'Annuler', cls: '' }] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
