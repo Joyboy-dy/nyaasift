@@ -105,7 +105,7 @@
   ],
   "uiLanguage": "fr",
   "github": {
-    "repo": null,
+    "repo": "Joyboy-dy/nyaasift",
     "visibility": "private",
     "description": "Tape le titre comme il te vient : nyaasift retrouve l'anime, cherche sur Nyaa sous tous ses noms et range les releases VF, MULTi ou VOSTFR par film, pack de saison et épisode. Extension Chrome et Firefox, site privé à héberger soi-même.",
     "topics": [
@@ -113,7 +113,19 @@
       "nyaa",
       "browser-extension",
       "search-engine",
-      "french"
+      "french",
+      "web-app",
+      "typescript",
+      "docker",
+      "bun",
+      "tanstack-start",
+      "better-auth",
+      "sqlite",
+      "zod",
+      "shadcn-ui",
+      "tabler-icons",
+      "wxt",
+      "docker-ghcr"
     ],
     "homepage": null
   },
