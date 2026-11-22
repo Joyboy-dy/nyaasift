@@ -11,7 +11,7 @@ nyaasift ne télécharge rien et n'héberge aucun fichier : il donne les liens v
 
 ## Installer l'extension
 
-En attendant sa publication dans les catalogues :
+En attendant sa publication dans les catalogues (procédure : [docs/store/chrome-web-store.md](docs/store/chrome-web-store.md)) :
 
 ```bash
 bun install
@@ -35,11 +35,11 @@ Ouvre http://localhost:3530 : la page « Premier lancement » crée le compte du
 
 ### Sur un serveur
 
-L'image est publiée sur GitHub Container Registry par `.github/workflows/release.yml`.
+Tout ce qui concerne la production est dans `deploy/` ; le pas-à-pas Dokploy est dans [deploy/DEPLOY.md](deploy/DEPLOY.md). L'image est aussi publiée sur GitHub Container Registry par `.github/workflows/release.yml`.
 
 ```bash
-cp .env.production.example .env.prod   # remplir les valeurs, sur le serveur seulement
-docker compose -f deploy/compose.yaml --env-file .env.prod up -d
+cp deploy/.env.production.example deploy/.env.prod   # remplir les valeurs, sur le serveur seulement
+docker compose -f deploy/compose.yaml --env-file deploy/.env.prod up -d
 ```
 
 - Le site écoute sur `127.0.0.1` : mets un proxy TLS devant (Dokploy, Caddy, Traefik). Le proxy doit transmettre l'IP du visiteur dans `X-Forwarded-For` (ou régler `TRUSTED_IP_HEADER`).
@@ -58,7 +58,7 @@ docker compose -f deploy/compose.yaml --env-file .env.prod up -d
 - **Mot de passe oublié** : un admin crée un « Lien mot de passe » (une fois, 24 h). Le super admin qui a perdu le sien le crée sur le serveur :
 
 ```bash
-docker compose -f deploy/compose.yaml --env-file .env.prod exec web bun dist/reset-link.js toi@exemple.fr
+docker compose -f deploy/compose.yaml --env-file deploy/.env.prod exec web bun dist/reset-link.js toi@exemple.fr
 bun run admin:reset-link toi@exemple.fr   # en développement
 ```
 

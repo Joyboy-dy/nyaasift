@@ -1,7 +1,8 @@
 # nyaasift : déploiement du site privé, à partir des images publiées.
 #
-#   cp .env.production.example .env.prod   # puis remplir les secrets
-#   docker compose -f deploy/compose.yaml --env-file .env.prod up -d   # depuis la racine du dépôt
+#   cp deploy/.env.production.example deploy/.env.prod   # ou utiliser deploy/.env.prod déjà préparé
+#   docker compose -f deploy/compose.yaml --env-file deploy/.env.prod up -d   # depuis la racine du dépôt
+# Avec Dokploy : coller le contenu de deploy/.env.prod dans l'onglet Environment (voir deploy/DEPLOY.md).
 #
 # IMAGE_PREFIX nomme les images, par ex. ghcr.io/<propriétaire>/nyaasift (voir .github/workflows/release.yml).
 # Le site n'est publié que sur 127.0.0.1 : mettre un proxy TLS devant (Caddy, Traefik, Dokploy…).
@@ -18,6 +19,8 @@ services:
       BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:?Définir BETTER_AUTH_SECRET (32 caractères au moins)}
       BETTER_AUTH_URL: ${BETTER_AUTH_URL:-${APP_URL}}
       SUPER_ADMIN_EMAIL: ${SUPER_ADMIN_EMAIL:?Définir SUPER_ADMIN_EMAIL}
+      TRUSTED_IP_HEADER: ${TRUSTED_IP_HEADER:-x-forwarded-for}
+      CHROME_EXTENSION_URL: ${CHROME_EXTENSION_URL:-}
     volumes:
       - data:/app/data
     ports:

@@ -5,9 +5,9 @@
 | File                      | Committed | Content                                                      |
 | ------------------------- | --------- | ------------------------------------------------------------ |
 | `.env.example`            | yes       | Every variable used by the project, example values only.     |
-| `.env.production.example` | yes       | Only what is really configurable in production (kept light). |
+| `deploy/.env.production.example` | yes       | Only what is really configurable in production (kept light). |
 | `.env.local`              | **no**    | Real local values (development).                             |
-| `.env.prod`               | **no**    | Real production values, on the server only.                  |
+| `deploy/.env.prod`        | **no**    | Real production values, on the server only.                  |
 
 `.gitignore` ignores `.env` and `.env.*`, except the `*.example` files. `bun run check:env`
 fails if a real environment file is tracked by git or if a value looks like a real secret.

@@ -1,5 +1,5 @@
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
-import { IconSearch } from "@tabler/icons-react";
+import { IconArrowUpRight, IconPuzzle, IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
 import { LANG_LABEL, type Filters } from "@nyaasift/shared";
 import { AppFooter, TopBar } from "#/components/ui-bits";
@@ -13,7 +13,7 @@ const LANGS: Filters["lang"][] = ["toutes", "fr", "multi", "vostfr"];
 const EXAMPLES = ["saga tanya", "frieren", "your name"];
 
 function Home() {
-  const { viewer } = Route.useRouteContext();
+  const { viewer, extension } = Route.useRouteContext();
   const navigate = useNavigate();
   const [q, setQ] = useState("");
   const [lang, setLang] = useState<Filters["lang"]>("fr");
@@ -145,6 +145,19 @@ function Home() {
               </Link>
             ))}
           </p>
+          <a className="ext-card" href={extension.url} target="_blank" rel="noreferrer">
+            <IconPuzzle size={18} stroke={1.5} aria-hidden="true" />
+            <span className="ext-card-text">
+              <b>Cherche aussi depuis nyaa.si, AniList et MyAnimeList</b>
+              <span>
+                L'extension nyaasift pour Chrome et Firefox, sans compte, avec ta propre connexion
+              </span>
+            </span>
+            <span className="ext-card-cta">
+              {extension.published ? "Ajouter à Chrome" : "Installer l'extension"}
+              <IconArrowUpRight size={16} stroke={1.5} aria-hidden="true" />
+            </span>
+          </a>
         </div>
       </main>
       <AppFooter viewer={viewer} />

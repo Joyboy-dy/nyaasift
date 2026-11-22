@@ -110,7 +110,7 @@ not verified. Two failures in a row on the same problem: stop and report instead
 - `.env.example` lists every variable with example values; `.env.local` (local) and `.env.prod`
   (production) hold real values and are never committed.
 - Add each new variable to `.env.example` and to the startup validation, and to
-  `.env.production.example` when it matters in production.
+  `deploy/.env.production.example` when it matters in production (production files live in `deploy/`).
 - Details and production rules: `.agents/rules/environment.md`.
 
 ## Commands

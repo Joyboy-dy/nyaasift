@@ -1,4 +1,4 @@
-import { Link, useNavigate, useRouter } from "@tanstack/react-router";
+import { Link, useNavigate, useRouteContext, useRouter } from "@tanstack/react-router";
 import { IconChevronDown, IconLogout, IconSearch, IconShieldLock } from "@tabler/icons-react";
 import { useState } from "react";
 import {
@@ -11,6 +11,7 @@ import {
 import type { Viewer } from "#/functions/viewer";
 import { authClient } from "#/lib/auth-client";
 import { avatarUri } from "#/lib/avatar";
+import { REPO_URL } from "#/lib/links";
 
 export function Brand() {
   return (
@@ -102,6 +103,7 @@ function roleLabel(v: Viewer): string {
 
 /** Pied de page léger : copyright, recherche, admin. */
 export function AppFooter({ viewer }: { viewer: Viewer }) {
+  const { extension } = useRouteContext({ from: "__root__" });
   return (
     <footer className="foot">
       <span>© 2026 nyaasift · open source · ne télécharge rien, donne les liens vers Nyaa</span>
@@ -110,6 +112,12 @@ export function AppFooter({ viewer }: { viewer: Viewer }) {
           Recherche
         </Link>
         {viewer.isAdmin && <Link to="/admin/membres">Admin</Link>}
+        <a href={extension.url} target="_blank" rel="noreferrer">
+          Extension
+        </a>
+        <a href={REPO_URL} target="_blank" rel="noreferrer">
+          Code source
+        </a>
       </nav>
     </footer>
   );
