@@ -24,3 +24,7 @@ packages/*/src/generated
 .idea
 **/.DS_Store
 *.log
+
+# Données locales (base SQLite) et fichiers de l'extension
+data
+**/.wxt

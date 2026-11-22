@@ -8,7 +8,7 @@ Légende : ✅ terminé · 🚧 en cours · ⏳ à venir
 
 ---
 
-## Phase 0 — Fondation technique ⏳
+## Phase 0 — Fondation technique ✅
 
 - Monorepo Bun : `apps/web` (TanStack Start sous Bun, port 3530), `packages/shared` (Zod), posés par le setup Groundwork.
 - `apps/extension` (WXT + React) créé juste après le setup avec `bunx wxt@latest init` : Groundwork ne connaît pas encore le type « extension ».
@@ -16,7 +16,7 @@ Légende : ✅ terminé · 🚧 en cours · ⏳ à venir
 - `deploy/Dockerfile` (une image), `compose.yaml` avec un volume `data/` pour SQLite, CI et publication d'image GHCR.
 - `bun run check` au vert (lint, types, build, tests) ; page de bienvenue sur http://localhost:3530 ; l'extension se construit pour Chrome et Firefox.
 
-## Phase 1 — Authentification et /admin ⏳
+## Phase 1 — Authentification et /admin ✅
 
 À partir de `actors.md`.
 
@@ -39,7 +39,7 @@ Légende : ✅ terminé · 🚧 en cours · ⏳ à venir
 - **Développement** : seed avec `SUPER_ADMIN_EMAIL` et comptes de test ; aucun e-mail à intercepter.
 - **Tests E2E** : premier lancement, invitation acceptée, connexion, suspension d'un membre, `/admin` refusé à un membre.
 
-## Phase 2 — Moteur de recherche Nyaa ⏳
+## Phase 2 — Moteur de recherche Nyaa ✅
 
 - **Parseur** dans `packages/shared`, porté de `docs/product/prototype/nyaa.py` : épisode, saison, plage, pack, film, résolution, langue (MULTi sans « Multi-Subs », VF, VFF, TRUEFRENCH, VOSTFR, SUBFRENCH), remake. Tests sur les vrais noms relevés le 2026-11-22 (Tsundere-Raws, VARYG, ToonsHub, T3KASHi, Judas).
 - **Rangement** dans `packages/shared` : films, packs, épisodes, non classés ; meilleure release par épisode (seeders, remakes écartés), autres releases.
@@ -48,14 +48,14 @@ Légende : ✅ terminé · 🚧 en cours · ⏳ à venir
 - **Vérification depuis le serveur réel** : ddos-guard laisse-t-il passer son IP ? Débit toléré, mesuré prudemment.
 - Tests : parseur, rangement, limite par compte, coupe-circuit (cache servi après un 429 simulé).
 
-## Phase 3 — Site : recherche et résultats ⏳
+## Phase 3 — Site : recherche et résultats ✅
 
 - Direction validée (`mood.md`) : sombre seulement, Geist et Geist Mono, jaune sous-titre #f2cf4a, codes `S02 · E11`, piste d'épisodes.
 - Accueil, résultats (fiche de l'anime, filtres, Films, Packs, Épisodes, Non classés), recherche dans l'adresse.
 - Autres releases dépliables, « Pas le bon anime ? », recherche brute, Nyaa ne répond pas, version téléphone.
 - Tests E2E : recherche directe, filtrer, ouvrir une release, Nyaa indisponible.
 
-## Phase 4 — Extension Chrome et Firefox ⏳
+## Phase 4 — Extension Chrome et Firefox 🚧
 
 - Panneau latéral (entrée `sidepanel` de WXT : `side_panel` sur Chrome, `sidebar_action` sur Firefox), ouvert par l'icône.
 - Service worker : requêtes vers nyaa.si (permission d'hôte) et AniList ; parseur et rangement de `packages/shared` ; petit cache local ; requêtes espacées.
@@ -64,7 +64,7 @@ Légende : ✅ terminé · 🚧 en cours · ⏳ à venir
 - Réglages (stockage de l'extension) : langue, qualité, barre, rattrapage, bouton, toutes les releases.
 - Tests : parseur de la page de Nyaa sur des pages enregistrées ; parcours du panneau en navigateur de test.
 
-## Phase 5 — Installation locale, mise en ligne, publication ⏳
+## Phase 5 — Installation locale, mise en ligne, publication 🚧
 
 - README (français, puis anglais) : site privé en local (`.env` + `docker compose up -d`), installation de l'extension.
 - `LICENSE` (MIT, si validée) ; mentions des projets dont du code MIT est repris.
@@ -78,3 +78,14 @@ Légende : ✅ terminé · 🚧 en cours · ⏳ à venir
 - Interface en anglais, autres langues de filtres, groupes favoris ou exclus, suivi d'un anime, SeaDex.
 
 ## Journal
+
+### 2026-11-22
+
+- Phases 0 à 3 faites d'une traite, à la demande du propriétaire (« toutes les phases en même temps »).
+- `packages/shared` : parseur porté du prototype Python, rangement, filtres, AniList, flux RSS ; 22 tests sur de vrais noms de releases.
+- Site : premier lancement, invitations à usage unique, liens de réinitialisation, rôles (droits du plugin admin restreints : un admin ne peut pas appeler `/api/auth/admin/*` au-delà de la suspension), `/admin` Membres et Administrateurs, recherche et résultats conformes aux maquettes.
+- Vérifié dans le navigateur : premier lancement, invitation acceptée puis refusée à la 2ᵉ utilisation, `/admin` refusé à un membre (et API admin directe en 403), suspension qui bloque la connexion, inscription directe refusée (403), recherche « saga tanya » en voix FR (2 films, 2 packs, 12 épisodes).
+- Recherche Nyaa : une seule requête combinée pour tous les titres (de ~30 s à 1–6 s).
+- Quand AniList dit FILM, les releases sans numéro d'épisode vont dans Films.
+- Production : build et démarrage vérifiés en local (SQLite créé, premier lancement, inscription directe refusée). Image Docker non construite : Docker était arrêté.
+- Reste en phase 5 : déploiement réel (domaine, Dokploy), vérifier depuis le serveur que ddos-guard laisse passer son IP, publication de l'extension dans les catalogues.

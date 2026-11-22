@@ -112,3 +112,11 @@ test("parseRss lit un élément du flux de Nyaa", () => {
   });
   expect(i?.date.startsWith("2026-10-28")).toBe(true);
 });
+
+test("un anime que AniList dit être un film range ses releases sans épisode dans Films", () => {
+  const items = [item(10, "[Judas] Kimi no Na wa (Your Name) [BD 1080p][HEVC x265 10bit] VF", 28)];
+  expect(rank(items, defaultFilters, ["Kimi no Na wa"]).other).toHaveLength(1);
+  const asMovie = rank(items, defaultFilters, ["Kimi no Na wa"], { movie: true });
+  expect(asMovie.films.map((f) => [f.id, f.code])).toEqual([[10, "Film"]]);
+  expect(asMovie.other).toEqual([]);
+});

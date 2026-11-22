@@ -1,0 +1,28 @@
+# nyaasift : installation locale en une commande, construite depuis les sources.
+# Tes recherches Nyaa partent alors de ta propre IP.
+#
+#   cp .env.example .env                # puis remplir SUPER_ADMIN_EMAIL et BETTER_AUTH_SECRET
+#   docker compose -f deploy/compose.local.yaml --env-file .env up -d --build
+#   → http://localhost:3530, puis « Premier lancement » avec l'e-mail de SUPER_ADMIN_EMAIL
+name: nyaasift-local
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: web
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      APP_URL: http://localhost:3530
+      BETTER_AUTH_URL: http://localhost:3530
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:?Définir BETTER_AUTH_SECRET (32 caractères au moins)}
+      SUPER_ADMIN_EMAIL: ${SUPER_ADMIN_EMAIL:?Définir SUPER_ADMIN_EMAIL}
+    volumes:
+      - data:/app/data
+    ports:
+      - "127.0.0.1:3530:3000"
+
+volumes:
+  data:

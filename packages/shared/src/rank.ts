@@ -56,11 +56,23 @@ function better(a: Release, b: Release): number {
   return b.seeders - a.seeders;
 }
 
-export function rank(items: NyaaItem[], filters: Filters, titles: string[] = []): Ranked {
+/**
+ * `movie` : AniList dit que l'anime est un film. Les releases sans numéro d'épisode
+ * (« Kimi no Na wa 1080p », sans le mot « movie ») sont alors rangées dans Films.
+ */
+export function rank(
+  items: NyaaItem[],
+  filters: Filters,
+  titles: string[] = [],
+  opts: { movie?: boolean } = {},
+): Ranked {
   const seen = new Set<number>();
   const releases = items
     .filter((i) => !seen.has(i.id) && seen.add(i.id) && matchesAnyTitle(i.title, titles))
     .map(toRelease)
+    .map((r) =>
+      opts.movie && r.kind === "autre" ? { ...r, kind: "film" as const, code: "Film" } : r,
+    )
     .filter((r) => keep(r, filters));
 
   const groups = new Map<string, Release[]>();

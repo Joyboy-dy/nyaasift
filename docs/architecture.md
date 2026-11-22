@@ -29,9 +29,10 @@ Navigateur ──► AniList GraphQL (IP du membre, 30 req/min)          ── 
             ├─ fonction serveur search (session exigée)
             │    ├─ limite par compte (seau de jetons en mémoire)
             │    ├─ cache mémoire 5 min (clé = requête Nyaa)
-            │    ├─ file globale vers Nyaa (une requête à la fois, délai minimal)
+            │    ├─ une seule requête pour tous les titres : ("titre 1"|"titre 2") [+ (multi|vf|…) si filtre FR]
+            │    ├─ file globale vers Nyaa (une requête à la fois, 1 s d'écart au moins)
             │    ├─ coupe-circuit après 429 ou défi ddos-guard → cache servi
-            │    └─► nyaa.si : RSS (page 1), HTML paginé (HTMLRewriter) si ≥ 75 résultats
+            │    └─► nyaa.si : RSS (page 1), puis jusqu'à 3 pages HTML si ≥ 75 résultats
             └─ /admin + fonctions serveur d'administration (rôle admin ou super admin)
 
 EXTENSION (aucun appel à nos serveurs)

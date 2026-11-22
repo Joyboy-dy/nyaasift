@@ -9,50 +9,296 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/_app'
+import { Route as ConnexionRouteImport } from './routes/connexion'
+import { Route as PremierLancementRouteImport } from './routes/premier-lancement'
+import { Route as AppIndexRouteImport } from './routes/_app/index'
+import { Route as AppAdminRouteImport } from './routes/_app/admin'
+import { Route as AppRechercheRouteImport } from './routes/_app/recherche'
+import { Route as InvitationTokenRouteImport } from './routes/invitation.$token'
+import { Route as ReinitialisationTokenRouteImport } from './routes/reinitialisation.$token'
+import { Route as AppAdminIndexRouteImport } from './routes/_app/admin/index'
+import { Route as AppAdminAdministrateursRouteImport } from './routes/_app/admin/administrateurs'
+import { Route as AppAdminMembresRouteImport } from './routes/_app/admin/membres'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
-const IndexRoute = IndexRouteImport.update({
+const AppRoute = AppRouteImport.update({
+  id: '/_app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnexionRoute = ConnexionRouteImport.update({
+  id: '/connexion',
+  path: '/connexion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PremierLancementRoute = PremierLancementRouteImport.update({
+  id: '/premier-lancement',
+  path: '/premier-lancement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAdminRoute = AppAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRechercheRoute = AppRechercheRouteImport.update({
+  id: '/recherche',
+  path: '/recherche',
+  getParentRoute: () => AppRoute,
+} as any)
+const InvitationTokenRoute = InvitationTokenRouteImport.update({
+  id: '/invitation/$token',
+  path: '/invitation/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReinitialisationTokenRoute = ReinitialisationTokenRouteImport.update({
+  id: '/reinitialisation/$token',
+  path: '/reinitialisation/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppAdminIndexRoute = AppAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppAdminRoute,
+} as any)
+const AppAdminAdministrateursRoute = AppAdminAdministrateursRouteImport.update({
+  id: '/administrateurs',
+  path: '/administrateurs',
+  getParentRoute: () => AppAdminRoute,
+} as any)
+const AppAdminMembresRoute = AppAdminMembresRouteImport.update({
+  id: '/membres',
+  path: '/membres',
+  getParentRoute: () => AppAdminRoute,
+} as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof AppIndexRoute
+  '/connexion': typeof ConnexionRoute
+  '/premier-lancement': typeof PremierLancementRoute
+  '/admin': typeof AppAdminRouteWithChildren
+  '/recherche': typeof AppRechercheRoute
+  '/invitation/$token': typeof InvitationTokenRoute
+  '/reinitialisation/$token': typeof ReinitialisationTokenRoute
+  '/admin/administrateurs': typeof AppAdminAdministrateursRoute
+  '/admin/membres': typeof AppAdminMembresRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
+  '/admin/': typeof AppAdminIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/connexion': typeof ConnexionRoute
+  '/premier-lancement': typeof PremierLancementRoute
+  '/recherche': typeof AppRechercheRoute
+  '/invitation/$token': typeof InvitationTokenRoute
+  '/reinitialisation/$token': typeof ReinitialisationTokenRoute
+  '/': typeof AppIndexRoute
+  '/admin/administrateurs': typeof AppAdminAdministrateursRoute
+  '/admin/membres': typeof AppAdminMembresRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
+  '/admin': typeof AppAdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_app': typeof AppRouteWithChildren
+  '/connexion': typeof ConnexionRoute
+  '/premier-lancement': typeof PremierLancementRoute
+  '/_app/admin': typeof AppAdminRouteWithChildren
+  '/_app/recherche': typeof AppRechercheRoute
+  '/invitation/$token': typeof InvitationTokenRoute
+  '/reinitialisation/$token': typeof ReinitialisationTokenRoute
+  '/_app/': typeof AppIndexRoute
+  '/_app/admin/administrateurs': typeof AppAdminAdministrateursRoute
+  '/_app/admin/membres': typeof AppAdminMembresRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
+  '/_app/admin/': typeof AppAdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/connexion'
+    | '/premier-lancement'
+    | '/admin'
+    | '/recherche'
+    | '/invitation/$token'
+    | '/reinitialisation/$token'
+    | '/admin/administrateurs'
+    | '/admin/membres'
+    | '/api/auth/$'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/connexion'
+    | '/premier-lancement'
+    | '/recherche'
+    | '/invitation/$token'
+    | '/reinitialisation/$token'
+    | '/'
+    | '/admin/administrateurs'
+    | '/admin/membres'
+    | '/api/auth/$'
+    | '/admin'
+  id:
+    | '__root__'
+    | '/_app'
+    | '/connexion'
+    | '/premier-lancement'
+    | '/_app/admin'
+    | '/_app/recherche'
+    | '/invitation/$token'
+    | '/reinitialisation/$token'
+    | '/_app/'
+    | '/_app/admin/administrateurs'
+    | '/_app/admin/membres'
+    | '/api/auth/$'
+    | '/_app/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  ConnexionRoute: typeof ConnexionRoute
+  PremierLancementRoute: typeof PremierLancementRoute
+  InvitationTokenRoute: typeof InvitationTokenRoute
+  ReinitialisationTokenRoute: typeof ReinitialisationTokenRoute
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_app': {
+      id: '/_app'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connexion': {
+      id: '/connexion'
+      path: '/connexion'
+      fullPath: '/connexion'
+      preLoaderRoute: typeof ConnexionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/premier-lancement': {
+      id: '/premier-lancement'
+      path: '/premier-lancement'
+      fullPath: '/premier-lancement'
+      preLoaderRoute: typeof PremierLancementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/': {
+      id: '/_app/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/admin': {
+      id: '/_app/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AppAdminRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/recherche': {
+      id: '/_app/recherche'
+      path: '/recherche'
+      fullPath: '/recherche'
+      preLoaderRoute: typeof AppRechercheRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/invitation/$token': {
+      id: '/invitation/$token'
+      path: '/invitation/$token'
+      fullPath: '/invitation/$token'
+      preLoaderRoute: typeof InvitationTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reinitialisation/$token': {
+      id: '/reinitialisation/$token'
+      path: '/reinitialisation/$token'
+      fullPath: '/reinitialisation/$token'
+      preLoaderRoute: typeof ReinitialisationTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/admin/': {
+      id: '/_app/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AppAdminIndexRouteImport
+      parentRoute: typeof AppAdminRoute
+    }
+    '/_app/admin/administrateurs': {
+      id: '/_app/admin/administrateurs'
+      path: '/administrateurs'
+      fullPath: '/admin/administrateurs'
+      preLoaderRoute: typeof AppAdminAdministrateursRouteImport
+      parentRoute: typeof AppAdminRoute
+    }
+    '/_app/admin/membres': {
+      id: '/_app/admin/membres'
+      path: '/membres'
+      fullPath: '/admin/membres'
+      preLoaderRoute: typeof AppAdminMembresRouteImport
+      parentRoute: typeof AppAdminRoute
+    }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
+interface AppAdminRouteChildren {
+  AppAdminAdministrateursRoute: typeof AppAdminAdministrateursRoute
+  AppAdminMembresRoute: typeof AppAdminMembresRoute
+  AppAdminIndexRoute: typeof AppAdminIndexRoute
+}
+
+const AppAdminRouteChildren: AppAdminRouteChildren = {
+  AppAdminAdministrateursRoute: AppAdminAdministrateursRoute,
+  AppAdminMembresRoute: AppAdminMembresRoute,
+  AppAdminIndexRoute: AppAdminIndexRoute,
+}
+
+const AppAdminRouteWithChildren = AppAdminRoute._addFileChildren(
+  AppAdminRouteChildren,
+)
+
+interface AppRouteChildren {
+  AppAdminRoute: typeof AppAdminRouteWithChildren
+  AppRechercheRoute: typeof AppRechercheRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAdminRoute: AppAdminRouteWithChildren,
+  AppRechercheRoute: AppRechercheRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  ConnexionRoute: ConnexionRoute,
+  PremierLancementRoute: PremierLancementRoute,
+  InvitationTokenRoute: InvitationTokenRoute,
+  ReinitialisationTokenRoute: ReinitialisationTokenRoute,
+  ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
