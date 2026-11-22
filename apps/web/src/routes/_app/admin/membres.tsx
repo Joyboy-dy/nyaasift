@@ -1,7 +1,15 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
-import { IconPlus } from "@tabler/icons-react";
+import {
+  IconKey,
+  IconPlayerPause,
+  IconPlayerPlay,
+  IconPlus,
+  IconTrash,
+  IconX,
+} from "@tabler/icons-react";
 import { useState } from "react";
 import { cx, errorText, relative } from "#/components/ui-bits";
+import { Tooltip, TooltipContent, TooltipTrigger } from "#/components/ui/tooltip";
 import {
   cancelInvitation,
   createInvitation,
@@ -113,10 +121,10 @@ function Members() {
         </div>
         {members.map((m) => (
           <div key={m.id} className={cx("mrow", m.banned && "off")} role="row">
-            <span role="cell" style={{ fontWeight: 500 }}>
+            <span role="cell" className="cell-name" title={m.name}>
               {m.id === viewer.id ? `${m.name} (toi)` : m.name}
             </span>
-            <span role="cell" className="mono" style={{ fontSize: 13 }}>
+            <span role="cell" className="cell-mail" title={m.email}>
               {m.email}
             </span>
             <span role="cell" style={{ fontSize: 13 }}>
@@ -140,7 +148,7 @@ function Members() {
           data.invitations.map((inv) => (
             <div key={inv.id} className="mrow" role="row">
               <span role="cell">—</span>
-              <span role="cell" className="mono" style={{ fontSize: 13 }}>
+              <span role="cell" className="cell-mail">
                 {inv.email ?? "lien sans e-mail"}
               </span>
               <span role="cell" style={{ fontSize: 13 }}>
@@ -154,13 +162,13 @@ function Members() {
                 créée {relative(inv.createdAt)}
               </span>
               <span role="cell" className="actions">
-                <button
-                  type="button"
-                  className="btn sm"
+                <IconAction
+                  label="Annuler l'invitation"
+                  danger
                   onClick={() => void run(() => cancelInvitation({ data: { id: inv.id } }))}
                 >
-                  Annuler
-                </button>
+                  <IconX size={16} stroke={1.5} />
+                </IconAction>
               </span>
             </div>
           ))}
@@ -185,9 +193,8 @@ function MemberActions(props: {
   if (!viewer.isSuperAdmin && m.role !== "user") return null; // un admin n'agit pas sur un autre admin
   return (
     <>
-      <button
-        type="button"
-        className="btn sm"
+      <IconAction
+        label="Créer un lien de mot de passe"
         onClick={() =>
           void run(async () => {
             const r = await createResetLink({ data: { userId: m.id } });
@@ -198,28 +205,57 @@ function MemberActions(props: {
           })
         }
       >
-        Lien mot de passe
-      </button>
-      <button
-        type="button"
-        className="btn sm"
+        <IconKey size={16} stroke={1.5} />
+      </IconAction>
+      <IconAction
+        label={m.banned ? "Réactiver" : "Suspendre"}
         onClick={() => void run(() => setBanned({ data: { userId: m.id, banned: !m.banned } }))}
       >
-        {m.banned ? "Réactiver" : "Suspendre"}
-      </button>
+        {m.banned ? (
+          <IconPlayerPlay size={16} stroke={1.5} />
+        ) : (
+          <IconPlayerPause size={16} stroke={1.5} />
+        )}
+      </IconAction>
       {viewer.isSuperAdmin && (
-        <button
-          type="button"
-          className="btn sm danger"
+        <IconAction
+          label="Retirer le compte"
+          danger
           onClick={() => {
             if (window.confirm(`Retirer définitivement le compte de ${m.name} ?`))
               void run(() => removeMember({ data: { userId: m.id } }));
           }}
         >
-          Retirer
-        </button>
+          <IconTrash size={16} stroke={1.5} />
+        </IconAction>
       )}
     </>
+  );
+}
+
+/** Bouton à icône : le libellé sert à la fois d'infobulle et de nom pour les lecteurs d'écran. */
+function IconAction(props: {
+  label: string;
+  danger?: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <Tooltip>
+      <TooltipTrigger
+        render={
+          <button
+            type="button"
+            className={cx("icon-btn", props.danger && "danger")}
+            aria-label={props.label}
+            onClick={props.onClick}
+          >
+            {props.children}
+          </button>
+        }
+      />
+      <TooltipContent>{props.label}</TooltipContent>
+    </Tooltip>
   );
 }
 

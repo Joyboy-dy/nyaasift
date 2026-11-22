@@ -2,7 +2,7 @@ import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
 import { LANG_LABEL, type Filters } from "@nyaasift/shared";
-import { TopBar } from "#/components/ui-bits";
+import { AppFooter, TopBar } from "#/components/ui-bits";
 
 export const Route = createFileRoute("/_app/")({
   head: () => ({ meta: [{ title: "nyaasift" }] }),
@@ -19,7 +19,7 @@ function Home() {
   const [lang, setLang] = useState<Filters["lang"]>("fr");
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div className="page">
       <TopBar viewer={viewer} />
       <main
         style={{
@@ -147,21 +147,7 @@ function Home() {
           </p>
         </div>
       </main>
-      <footer
-        className="muted"
-        style={{
-          padding: "20px 32px",
-          borderTop: "1px solid var(--ns-line)",
-          fontSize: 13,
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          gap: 8,
-        }}
-      >
-        <span>nyaasift ne télécharge rien, il te donne les liens vers Nyaa</span>
-        <span>Open source · aucun pistage · titres via AniList</span>
-      </footer>
+      <AppFooter viewer={viewer} />
     </div>
   );
 }

@@ -83,31 +83,117 @@ a {
   display: flex;
   gap: 8px;
 }
-.nav {
-  display: flex;
-  gap: 4px;
-}
-.nav a {
-  height: 32px;
-  padding: 0 12px;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 8px;
-  color: var(--ns-text2);
-  text-decoration: none;
-}
-.nav a[data-status="active"] {
-  background: var(--ns-raised);
-  color: var(--ns-text);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 6%);
-}
-.top-end {
+.account {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  min-width: 0;
+  max-width: 260px;
+  height: 40px;
+  padding: 0 8px 0 4px;
+  background: transparent;
+  color: var(--ns-text);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    background-color 0.15s var(--ns-ease),
+    border-color 0.15s var(--ns-ease);
+}
+.account:hover,
+.account[data-popup-open] {
+  background: var(--ns-card);
+  border-color: var(--ns-line);
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ns-raised);
+  border: 1px solid var(--ns-line2);
+  font-family: var(--ns-mono);
   font-size: 13px;
+  font-weight: 500;
+}
+/* un nom long est coupé proprement, le rôle reste lisible sous lui */
+.account-who {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  line-height: 16px;
+}
+.account-who b {
+  max-width: 100%;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.account-who small {
+  font-family: var(--ns-mono);
+  font-size: 11px;
+  color: var(--ns-muted);
+}
+.menu-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 8px 10px;
+  min-width: 0;
+}
+.menu-head b {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.menu-head span {
+  font-family: var(--ns-mono);
+  font-size: 12px;
+  color: var(--ns-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* pied de page léger */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 20px 32px;
+  border-top: 1px solid var(--ns-line);
+  font-size: 13px;
+  color: var(--ns-muted);
+}
+.foot nav {
+  display: flex;
+  gap: 20px;
+}
+.foot a {
   color: var(--ns-text2);
+  text-decoration: none;
+}
+.foot a:hover,
+.foot a[data-status="active"] {
+  color: var(--ns-text);
+}
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page > main {
+  flex-grow: 1;
 }
 .role-tag {
   font-family: var(--ns-mono);
@@ -226,6 +312,7 @@ a {
   border-radius: 8px;
 }
 .seg button {
+  white-space: nowrap;
   height: 32px;
   padding: 0 12px;
   display: inline-flex;
@@ -354,6 +441,7 @@ a {
   padding: 32px 0 24px;
 }
 .cover {
+  position: relative;
   width: 120px;
   height: 168px;
   flex: none;
@@ -367,11 +455,13 @@ a {
   padding: 12px;
   gap: 4px;
 }
+/* l'affiche remplit tout le cadre, bord à bord */
 .cover img {
-  width: 120px;
-  height: 168px;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  margin: -12px;
 }
 .anime-info {
   flex: 1 1 400px;
@@ -660,6 +750,46 @@ a {
   .top {
     padding: 12px 16px;
   }
+  .top-search {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+  }
+  .account-who {
+    display: none;
+  }
+  /* affiche à côté du titre, « Pas le bon anime ? » dessous */
+  .anime {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 0 20px;
+  }
+  .anime-info {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .anime > .btn {
+    flex-basis: 100%;
+  }
+  .searched {
+    margin-top: 4px;
+  }
+  /* les choix trop larges défilent au lieu de passer à la ligne */
+  .seg {
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .fg {
+    max-width: 100%;
+  }
+  .account {
+    padding: 0 4px;
+  }
+  .foot {
+    padding: 16px;
+  }
   .wrap {
     padding: 0 16px 48px;
   }
@@ -689,8 +819,7 @@ a {
     font-size: 24px;
     line-height: 28px;
   }
-  .cover,
-  .cover img {
+  .cover {
     width: 80px;
     height: 112px;
   }
@@ -721,13 +850,10 @@ a {
 }
 .mrow {
   display: grid;
-  grid-template-columns: minmax(120px, 1fr) minmax(180px, 1.3fr) 110px 170px 140px minmax(
-      240px,
-      auto
-    );
+  grid-template-columns: minmax(140px, 1.1fr) minmax(200px, 1.5fr) 120px 150px 130px 168px;
   align-items: center;
   min-height: 52px;
-  min-width: 1000px;
+  min-width: 940px;
   border-top: 1px solid var(--ns-line);
 }
 .mrow > * {
@@ -809,4 +935,149 @@ a {
   border-top: 1px solid var(--ns-line);
   font-size: 13px;
   color: var(--ns-muted);
+}
+
+.mrow .cell-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mrow .cell-mail {
+  font-family: var(--ns-mono);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--ns-text2);
+  border: 1px solid var(--ns-line);
+  border-radius: 8px;
+  transition:
+    background-color 0.15s var(--ns-ease),
+    color 0.15s var(--ns-ease);
+}
+.icon-btn:hover {
+  background: var(--ns-raised);
+  color: var(--ns-text);
+}
+.icon-btn.danger:hover {
+  color: var(--ns-leech);
+  border-color: rgb(239 107 111 / 30%);
+}
+.actions {
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+/* Curseurs : tout ce qui se clique montre la main, le reste suit son rôle */
+a[href],
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+[role="menuitem"],
+[role="option"],
+[role="tab"],
+[role="checkbox"],
+[role="switch"],
+[role="combobox"],
+summary,
+label:has(input:not(:disabled)),
+label:has([role="checkbox"]),
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+select:not(:disabled) {
+  cursor: pointer;
+}
+button:disabled,
+input:disabled,
+select:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+  cursor: text;
+}
+input[readonly] {
+  cursor: default;
+}
+
+@media (max-width: 480px) {
+  .btn-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+}
+
+/* Composants shadcn aux couleurs et tailles de nyaasift */
+.fg-label {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ns-muted);
+}
+.ns-select[data-slot="select-trigger"] {
+  height: 38px;
+  min-width: 128px;
+  padding: 0 10px 0 12px;
+  background: var(--ns-deep);
+  border: 1px solid var(--ns-line);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--ns-text);
+}
+.ns-select[data-slot="select-trigger"]:hover {
+  background: var(--ns-card);
+}
+.ns-select.on[data-slot="select-trigger"] {
+  background: var(--ns-raised);
+  border-color: var(--ns-line2);
+}
+[data-slot="select-content"],
+[data-slot="dropdown-menu-content"] {
+  background: var(--ns-card);
+  border: 1px solid var(--ns-line2);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 40%);
+}
+[data-slot="select-item"],
+[data-slot="dropdown-menu-item"] {
+  min-height: 32px;
+  font-size: 13px;
+}
+.checks [data-slot="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border-color: var(--ns-line2);
+  background: var(--ns-deep);
+}
+.checks [data-slot="checkbox"][data-checked] {
+  background: var(--ns-accent);
+  border-color: var(--ns-accent);
+  color: var(--ns-ink);
+}
+
+/* Une légende de <fieldset> n'est pas un élément flex : on la place comme les autres étiquettes */
+fieldset.fg {
+  display: block;
+}
+fieldset.fg > legend {
+  float: left;
+  width: 100%;
+  margin: 0 0 8px;
+}
+fieldset.fg > legend + * {
+  clear: both;
 }

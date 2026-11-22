@@ -1,4 +1,5 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
+import { TooltipProvider } from "#/components/ui/tooltip";
 import { getViewer } from "#/functions/viewer";
 
 import appCss from "../styles.css?url";
@@ -13,7 +14,12 @@ export const Route = createRootRoute({
       { name: "robots", content: "noindex, nofollow" },
       { title: "nyaasift" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/icon-128.png" },
+    ],
   }),
   shellComponent: RootDocument,
   notFoundComponent: NotFound,
@@ -49,7 +55,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <TooltipProvider delay={300}>{children}</TooltipProvider>
         <Scripts />
       </body>
     </html>

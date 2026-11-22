@@ -22,7 +22,15 @@ import {
   type NyaaItem,
   type Release,
 } from "@nyaasift/shared";
-import { TopBar, cx, errorText, formatDate } from "#/components/ui-bits";
+import { AppFooter, TopBar, cx, errorText, formatDate } from "#/components/ui-bits";
+import { Checkbox } from "#/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "#/components/ui/select";
 import { searchReleases } from "#/functions/search";
 
 export const Route = createFileRoute("/_app/recherche")({
@@ -114,7 +122,7 @@ function Results() {
     void navigate({ search: (s) => ({ ...s, ...patch }), replace: true });
 
   return (
-    <div>
+    <div className="page">
       <TopBar viewer={viewer} query={q} />
       <main className="wrap">
         <AnimeCard
@@ -235,6 +243,7 @@ function Results() {
           </>
         )}
       </main>
+      <AppFooter viewer={viewer} />
     </div>
   );
 }
@@ -421,6 +430,10 @@ function Matches(props: {
 }
 
 const LANGS: Filters["lang"][] = ["toutes", "fr", "multi", "vostfr"];
+const SEASONS = [
+  { value: "0", label: "Toutes" },
+  ...Array.from({ length: 8 }, (_, i) => ({ value: String(i + 1), label: `Saison ${i + 1}` })),
+];
 const RES: Filters["res"][] = ["toutes", "2160p", "1080p", "720p"];
 const TYPES: [Filters["type"], string][] = [
   ["tout", "Tout"],
@@ -473,20 +486,28 @@ function FilterBar(props: {
         </div>
       </fieldset>
       <div className="fg">
-        <label htmlFor="season">Saison</label>
-        <select
-          id="season"
-          className={cx("field", f.season > 0 && "on")}
-          value={f.season}
-          onChange={(e) => props.setFilter({ season: Number(e.target.value) })}
+        <span id="season-label" className="fg-label">
+          Saison
+        </span>
+        <Select
+          items={SEASONS}
+          value={String(f.season)}
+          onValueChange={(v) => props.setFilter({ season: Number(v) })}
         >
-          <option value={0}>Toutes</option>
-          {Array.from({ length: 8 }, (_, i) => i + 1).map((n) => (
-            <option key={n} value={n}>
-              Saison {n}
-            </option>
-          ))}
-        </select>
+          <SelectTrigger
+            aria-labelledby="season-label"
+            className={cx("ns-select", f.season > 0 && "on")}
+          >
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent alignItemWithTrigger={false} align="start">
+            {SEASONS.map((s) => (
+              <SelectItem key={s.value} value={s.value}>
+                {s.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
       <fieldset className="fg">
         <legend>Type</legend>
@@ -519,19 +540,11 @@ function FilterBar(props: {
       </div>
       <div className="checks">
         <label>
-          <input
-            type="checkbox"
-            checked={f.all}
-            onChange={(e) => props.setFilter({ all: e.target.checked })}
-          />{" "}
+          <Checkbox checked={f.all} onCheckedChange={(v) => props.setFilter({ all: v })} />
           Toutes les releases de chaque épisode
         </label>
         <label>
-          <input
-            type="checkbox"
-            checked={props.raw}
-            onChange={(e) => props.onRaw(e.target.checked)}
-          />{" "}
+          <Checkbox checked={props.raw} onCheckedChange={(v) => props.onRaw(v)} />
           Recherche brute, sans AniList
         </label>
       </div>

@@ -1,5 +1,5 @@
 import { Link, Outlet, createFileRoute } from "@tanstack/react-router";
-import { TopBar } from "#/components/ui-bits";
+import { AppFooter, TopBar } from "#/components/ui-bits";
 
 export const Route = createFileRoute("/_app/admin")({
   head: () => ({ meta: [{ title: "Admin · nyaasift" }] }),
@@ -10,7 +10,7 @@ function AdminLayout() {
   const { viewer } = Route.useRouteContext();
   if (!viewer.isAdmin) {
     return (
-      <div>
+      <div className="page">
         <TopBar viewer={viewer} />
         <main className="wrap" style={{ paddingTop: 64 }}>
           <h1 style={{ margin: 0, fontSize: 28, fontWeight: 500 }}>Réservé aux admins</h1>
@@ -21,11 +21,12 @@ function AdminLayout() {
             Retour à la recherche
           </Link>
         </main>
+        <AppFooter viewer={viewer} />
       </div>
     );
   }
   return (
-    <div>
+    <div className="page">
       <TopBar viewer={viewer} />
       <main
         style={{
@@ -46,6 +47,7 @@ function AdminLayout() {
         </div>
         <Outlet />
       </main>
+      <AppFooter viewer={viewer} />
     </div>
   );
 }

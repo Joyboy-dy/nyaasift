@@ -1,6 +1,13 @@
 import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 import { errorText } from "#/components/ui-bits";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "#/components/ui/select";
 import { listMembers, setAdmin } from "#/functions/admin";
 
 export const Route = createFileRoute("/_app/admin/administrateurs")({
@@ -86,23 +93,31 @@ function Admins() {
           }}
         >
           <div className="form-field" style={{ flex: "1 1 280px" }}>
-            <label htmlFor="who">Nommer un membre admin</label>
-            <select
-              id="who"
-              className="field"
-              style={{ height: 40, fontSize: 14 }}
-              value={pick}
-              onChange={(e) => setPick(e.target.value)}
+            <span id="who-label" className="fg-label" style={{ fontSize: 13 }}>
+              Nommer un membre admin
+            </span>
+            <Select
+              items={candidates.map((m) => ({ value: m.id, label: `${m.name} · ${m.email}` }))}
+              value={pick || null}
+              onValueChange={(v) => setPick(v ?? "")}
             >
-              <option value="">
-                {candidates.length ? "Choisis un membre" : "Aucun membre à nommer"}
-              </option>
-              {candidates.map((m) => (
-                <option key={m.id} value={m.id}>
-                  {m.name} · {m.email}
-                </option>
-              ))}
-            </select>
+              <SelectTrigger
+                aria-labelledby="who-label"
+                className="ns-select"
+                style={{ height: 40, width: "100%" }}
+              >
+                <SelectValue
+                  placeholder={candidates.length ? "Choisis un membre" : "Aucun membre à nommer"}
+                />
+              </SelectTrigger>
+              <SelectContent alignItemWithTrigger={false} align="start">
+                {candidates.map((m) => (
+                  <SelectItem key={m.id} value={m.id}>
+                    {m.name} · {m.email}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           <button type="submit" className="btn" disabled={!pick}>
             Nommer admin
