@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "nyaasift-web",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "--cwd", "apps/web", "dev"],
+      "port": 3530,
+      "url": "http://localhost:3530"
+    }
+  ]
+}
