@@ -1,6 +1,6 @@
 {
   "name": "@nyaasift/extension",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Range les releases de Nyaa : panneau latéral, barre sur nyaa.si, bouton sur AniList et MyAnimeList.",
   "type": "module",

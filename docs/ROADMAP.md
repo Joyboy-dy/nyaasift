@@ -55,7 +55,7 @@ Légende : ✅ terminé · 🚧 en cours · ⏳ à venir
 - Autres releases dépliables, « Pas le bon anime ? », recherche brute, Nyaa ne répond pas, version téléphone.
 - Tests E2E : recherche directe, filtrer, ouvrir une release, Nyaa indisponible.
 
-## Phase 4 — Extension Chrome et Firefox 🚧
+## Phase 4 — Extension Chrome et Firefox ✅
 
 - Panneau latéral (entrée `sidepanel` de WXT : `side_panel` sur Chrome, `sidebar_action` sur Firefox), ouvert par l'icône.
 - Service worker : requêtes vers nyaa.si (permission d'hôte) et AniList ; parseur et rangement de `packages/shared` ; petit cache local ; requêtes espacées.
@@ -89,3 +89,6 @@ Légende : ✅ terminé · 🚧 en cours · ⏳ à venir
 - Quand AniList dit FILM, les releases sans numéro d'épisode vont dans Films.
 - Production : build et démarrage vérifiés en local (SQLite créé, premier lancement, inscription directe refusée). Image Docker non construite : Docker était arrêté.
 - Reste en phase 5 : déploiement réel (domaine, Dokploy), vérifier depuis le serveur que ddos-guard laisse passer son IP, publication de l'extension dans les catalogues.
+- Extension (WXT 0.21.5, Chrome MV3 et Firefox MV2) : panneau latéral, barre sur nyaa.si (lue sur une page Nyaa enregistrée en test), recherche vide rattrapée par AniList, bouton AniList/MyAnimeList, réglages synchronisés ; 12 tests. Vérifiée dans le volet navigateur avec une API d'extension simulée, pas encore chargée dans un vrai Chrome ou Firefox.
+- Corrigé : le plugin Prettier de Tailwind retirait les espaces dans les classes CSS écrites en gabarit (`cx()` dans le site, `join(" ")` dans l'extension).
+- Reste : icône propre de l'extension, essai réel dans Chrome et Firefox, « Multi-Audio » parfois compté comme voix FR.

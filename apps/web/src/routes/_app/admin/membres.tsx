@@ -1,7 +1,7 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { IconPlus } from "@tabler/icons-react";
 import { useState } from "react";
-import { errorText, relative } from "#/components/ui-bits";
+import { cx, errorText, relative } from "#/components/ui-bits";
 import {
   cancelInvitation,
   createInvitation,
@@ -112,7 +112,7 @@ function Members() {
           </span>
         </div>
         {members.map((m) => (
-          <div key={m.id} className={`mrow${m.banned ? "off" : ""}`} role="row">
+          <div key={m.id} className={cx("mrow", m.banned && "off")} role="row">
             <span role="cell" style={{ fontWeight: 500 }}>
               {m.id === viewer.id ? `${m.name} (toi)` : m.name}
             </span>
@@ -123,7 +123,9 @@ function Members() {
               {ROLE_LABEL[m.role]}
             </span>
             <span role="cell" className="st">
-              <span className={`dot ${m.role === "superadmin" ? "me" : m.banned ? "off" : "ok"}`} />
+              <span
+                className={cx("dot", m.role === "superadmin" ? "me" : m.banned ? "off" : "ok")}
+              />
               {m.banned ? "Suspendu" : "Actif"}
             </span>
             <span role="cell" className="mono muted" style={{ fontSize: 12 }}>

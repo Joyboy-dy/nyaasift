@@ -22,7 +22,7 @@ import {
   type NyaaItem,
   type Release,
 } from "@nyaasift/shared";
-import { TopBar, errorText, formatDate } from "#/components/ui-bits";
+import { TopBar, cx, errorText, formatDate } from "#/components/ui-bits";
 import { searchReleases } from "#/functions/search";
 
 export const Route = createFileRoute("/_app/recherche")({
@@ -476,7 +476,7 @@ function FilterBar(props: {
         <label htmlFor="season">Saison</label>
         <select
           id="season"
-          className={`field${f.season ? "on" : ""}`}
+          className={cx("field", f.season > 0 && "on")}
           value={f.season}
           onChange={(e) => props.setFilter({ season: Number(e.target.value) })}
         >
@@ -655,7 +655,7 @@ function Row({ r, kind, more }: { r: Release; kind?: "open" | "other"; more?: Re
         {more}
       </span>
       <span role="cell">
-        <span className={`lang${r.lang === "Autre" ? "autre" : ""}`}>
+        <span className={cx("lang", r.lang === "Autre" && "autre")}>
           {r.lang === "VF" || r.lang === "MULTi" ? (
             <span className="dot fr" />
           ) : r.lang === "VOSTFR" ? (

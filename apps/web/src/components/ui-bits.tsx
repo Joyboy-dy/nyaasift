@@ -118,3 +118,8 @@ export function relative(ts: number | null): string {
   if (d < 30) return `il y a ${d} j`;
   return `il y a ${Math.round(d / 30)} mois`;
 }
+
+/** Assemble des classes CSS. (Le plugin Prettier de Tailwind retire les espaces dans les classes écrites en gabarit.) */
+export function cx(...names: (string | false | null | undefined)[]): string {
+  return names.filter(Boolean).join(" ");
+}

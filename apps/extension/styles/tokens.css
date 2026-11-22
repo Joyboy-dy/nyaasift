@@ -1,0 +1,20 @@
+/* Direction de docs/product/mood.md : sombre seulement, Geist, jaune sous-titre. */
+:root {
+  --bg: #141415;
+  --card: #19191b;
+  --raised: #232325;
+  --deep: #0f0f10;
+  --hover: #1e1e20;
+  --line: rgba(237, 237, 237, 0.08);
+  --line-strong: rgba(237, 237, 237, 0.14);
+  --text: #ededed;
+  --text-2: #a1a1a6;
+  --text-3: #85858b;
+  --accent: #f2cf4a;
+  --on-accent: #141415;
+  --seed: #4cc38a;
+  --leech: #ef6b6f;
+  --sans: "Geist Variable", "nyaasift Geist", Geist, system-ui, sans-serif;
+  --mono: "Geist Mono Variable", "nyaasift Geist Mono", "Geist Mono", ui-monospace, monospace;
+  color-scheme: dark;
+}
