@@ -111,15 +111,14 @@ a {
   width: 32px;
   height: 32px;
   flex: none;
+  display: block;
   border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--ns-raised);
-  border: 1px solid var(--ns-line2);
-  font-family: var(--ns-mono);
-  font-size: 13px;
-  font-weight: 500;
+  box-shadow: 0 0 0 1px var(--ns-line2);
+}
+.avatar.sm {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
 }
 /* un nom long est coupé proprement, le rôle reste lisible sous lui */
 .account-who {
@@ -938,6 +937,9 @@ a {
 }
 
 .mrow .cell-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -1080,4 +1082,10 @@ fieldset.fg > legend {
 }
 fieldset.fg > legend + * {
   clear: both;
+}
+
+.mrow .cell-name > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -10,6 +10,7 @@ import {
 } from "#/components/ui/dropdown-menu";
 import type { Viewer } from "#/functions/viewer";
 import { authClient } from "#/lib/auth-client";
+import { avatarUri } from "#/lib/avatar";
 
 export function Brand() {
   return (
@@ -59,9 +60,7 @@ export function TopBar({ viewer, query }: { viewer: Viewer; query?: string }) {
       )}
       <DropdownMenu>
         <DropdownMenuTrigger className="account" aria-label={`Compte de ${viewer.name}`}>
-          <span className="avatar" aria-hidden="true">
-            {initial(viewer.name)}
-          </span>
+          <img className="avatar" src={avatarUri(viewer.id)} alt="" width={32} height={32} />
           <span className="account-who">
             <b>{viewer.name}</b>
             <small>{roleLabel(viewer)}</small>
@@ -95,10 +94,6 @@ export function TopBar({ viewer, query }: { viewer: Viewer; query?: string }) {
       </DropdownMenu>
     </header>
   );
-}
-
-function initial(name: string): string {
-  return ([...name.trim()][0] ?? "?").toUpperCase();
 }
 
 function roleLabel(v: Viewer): string {

@@ -94,3 +94,4 @@ Légende : ✅ terminé · 🚧 en cours · ⏳ à venir
 - Reste : icône propre de l'extension, essai réel dans Chrome et Firefox, « Multi-Audio » parfois compté comme voix FR.
 - Retouches d'interface demandées par le propriétaire : sélecteurs et cases shadcn/ui (plus de contrôles natifs), affiche AniList bord à bord, curseur « main » sur tout ce qui se clique (règle globale), barre du haut réduite à logo + recherche + menu du compte (nom long coupé, initiale seule sur téléphone), pied de page léger (copyright, Recherche, Admin), actions du tableau /admin en icônes avec infobulles et colonnes alignées, filtres alignés au pixel.
 - Icône de l'app (canevas Claude Design) : trois lignes triées et le point jaune « voix FR » ; PNG 16 à 128 pour l'extension, favicon du site.
+- Avatars DiceBear (style Lorelei, CC0, fonds pastel doux, graine = identifiant du compte) dans le menu du compte et la liste des membres.

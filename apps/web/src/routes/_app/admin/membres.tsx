@@ -10,6 +10,7 @@ import {
 import { useState } from "react";
 import { cx, errorText, relative } from "#/components/ui-bits";
 import { Tooltip, TooltipContent, TooltipTrigger } from "#/components/ui/tooltip";
+import { avatarUri } from "#/lib/avatar";
 import {
   cancelInvitation,
   createInvitation,
@@ -122,7 +123,8 @@ function Members() {
         {members.map((m) => (
           <div key={m.id} className={cx("mrow", m.banned && "off")} role="row">
             <span role="cell" className="cell-name" title={m.name}>
-              {m.id === viewer.id ? `${m.name} (toi)` : m.name}
+              <img className="avatar sm" src={avatarUri(m.id)} alt="" width={24} height={24} />
+              <span>{m.id === viewer.id ? `${m.name} (toi)` : m.name}</span>
             </span>
             <span role="cell" className="cell-mail" title={m.email}>
               {m.email}
